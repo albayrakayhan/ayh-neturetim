@@ -27,7 +27,7 @@ namespace aceka.web_api.Controllers
         #endregion
 
         // <summary>
-        // Kur listesini getirir.
+        // Exchange Rate List
         // </summary>
         // <param name="parameters"></param>
         // <returns></returns>
@@ -42,9 +42,9 @@ namespace aceka.web_api.Controllers
         /// <summary>
         /// Kur listesini getirir.
         /// </summary>
-        /// <param name="sene">Listelenecek tarih parametresi</param>
-        /// <param name="ay">Listelenmek istenen kur'un tipi</param>
-        /// <param name="pb">Listelenmek istenen kur'un tipi</param>
+        /// <param name="sene">exchange rate date parameter</param>
+        /// <param name="ay">exchange rate month parameter</param>
+        /// <param name="pb">exchange rate currency parameter</param>
         /// <returns></returns>
         [HttpGet]
         [CustAuthFilter(ApiUrl = "api/kur")]
@@ -59,18 +59,18 @@ namespace aceka.web_api.Controllers
         }
 
         /// <summary>
-        /// Kur listesindeki Yılların Listesini getirir.
+        /// Exchange Rate Year List.
         /// </summary>
         /// <returns>
         /// [
         ///     {
-        ///       sene: "2007"
+        ///       year: "2007"
         ///     },
         ///     {
-        ///       sene: "2008"
+        ///       year: "2008"
         ///     },
         ///     {
-        ///       sene: "2009"
+        ///       year: "2009"
         ///     },
         /// ]
         /// </returns>
@@ -102,13 +102,13 @@ namespace aceka.web_api.Controllers
         /// <returns>
         /// [
         ///     {
-        ///       sene: "2007"
+        ///       month: "01"
         ///     },
         ///     {
-        ///       sene: "2008"
+        ///        month: "02"
         ///     },
         ///     {
-        ///       sene: "2009"
+        ///        month: "03"
         ///     },
         /// ]
         /// </returns>
@@ -142,12 +142,8 @@ namespace aceka.web_api.Controllers
         //{
         //    //kurRepository = new KurRepository();
         //    //kurlar = kurRepository.Getir(parameters.Tarih, parameters.Currency);
-
         //    return Request.CreateResponse(HttpStatusCode.NoContent);
         //}
-
-
-        // GET: api/Kur/5
 
     }
 }

@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Kendo UI Snippet</title>
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.rtl.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.silver.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.mobile.all.min.css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.3.913/js/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendo/cultures/kendo.culture.tr-TR.min.js"></script>
+</head>
+<body>
+    <input id="datepicker" name="datepicker" title="datepicker" style="width: 20%" />
+    <div id="grid"></div>
+
+
+
+        @*<div id="grid1"></div>
+        <script>
+            var remoteDataSource= new kendo.data.DataSource({
+                transport:{
+                    read:{
+                        url: "http://localhost:49629/api/siparis/ilk-madde-modeller-pivot/1,1,20",
+                        dataType: "json",
+                    },
+                    create: {
+                        url: "http://localhost:49629/api/siparis",
+                        dataType: "json",
+                        type:"POST"
+                    },
+                    update: {
+                        url: "http://localhost:49629/api/siparis/ilk-madde-modeller",
+                        dataType: "json",
+                        type: "PUT"
+                    },
+                        parameterMap: function(options, operation) {
+                            if (operation !== "read" && options.models) {
+                                return {models: kendo.stringify(options.models)};
+                            }
+                        }
+                },
+                schema:{
+                    model:{
+                        id:"siparis_id",
+                        fields:{
+                            siparis_id: { editable: false, type: "number"}
+
+                        }
+                    }
+                },
+                autowidth:true
+            });
+
+            $('#grid1').kendoGrid({
+                dataSource: remoteDataSource,
+                height: 100,
+                editable: "inline"
+
+            });
+            console.log(remoteDataSource);
+        </script>*@
+
+        <script>
+            //Kendo UI bugünün tarihi.
+            $("#datepicker").kendoDatePicker({
+                culture: "tr-TR",
+                value: new Date(),
+                dateInput: true
+            });
+
+            function template(data, i) {
+                return data.pivotMatrixData[i].value
+            }
+            function buildColumns(data) {
+                debugger
+                var columns = [];
+                var keys = Object.keys(data[0]);
+                keys.forEach(function (x) {
+                    if (data[0][x] instanceof Array) {
+                        console.log(x);
+                        data[0][x].forEach(function (y, i) {
+                         columns.push({ field: x + "[" + i + "].name", title: y.name, template: "#=template(data, " + i + ")#", width: 100 })
+                        })
+                    } else {
+                        columns.push({ field: x, width: 100 });
+                    }
+                })
+                return columns;
+            }
+            function createGrid(data) {
+                $("#grid").kendoGrid({
+                    columns: buildColumns(data),
+                    dataSource: data,
+                    scrollable: true,
+                    editable:true
+                });
+            }
+         //sayfa açıldığında ilk buraya giriyor.
+            $(function () {
+                var data = [
+                 {
+                        "stokkart_id": 1,
+                        "sira_id": 1,
+                        "talimatturu_id": 1,
+                        "talimat_tanim": "KESİM",
+                        "alt_stokkart_id": 32444,
+                        "stok_adi": "%50 Cotton %50 polyster yt (sample)",
+                        "modelyeri": "Test Data yı update ediyorum",
+                        "renk_id": 9,
+                        "renk_adi": "Navy",
+                        "aciklama": "Bu açıklama bizi yoracak gibi",
+                        "birim_id": 5,
+                        "birim_adi": "Kilogram",
+                        "birim_id3": 23,
+                        "birim_adi3": "Metre",
+                        "pivotMatrixData": [
+                            {
+                                "name": "94 OSFA",
+                                "value": null
+                            },
+                            {
+                                "name": "95 38/32",
+                                "value": null
+                            },
+                                    {
+                                "name": "96 40/34",
+                                "value": null
+                            },
+                                    {
+                                "name": "97 42/36",
+                                "value": null
+                            },
+                                    {
+                                "name": "99 46/40",
+                                "value": null
+                            },
+                                    {
+                                "name": "100 48/42",
+                                "value": null
+                            },
+                                    {
+                                "name": "101 50/44",
+                                "value": null
+                            },
+                            {
+                                "name": "102 52/46",
+                                "value": null
+                            },
+                            {
+                                "name": "103 54/48",
+                                "value": null
+                            },
+                            {
+                                "name": "104 56/50",
+                                "value": null
+                            },
+                            {
+                                "name": "108 182",
+                                "value": 1.2
+                            },
+                            {
+                                "name": "109 2-3",
+                                "value": 0.12
+                            },
+                            {
+                                "name": "110 YLG",
+                                "value": 2
+                            },
+                            {
+                                "name": "111 YMD",
+                                "value": null
+                            },
+                            {
+                                "name": "112 YSM",
+                                "value": null
+                            },
+                            {
+                                "name": "113 YXL",
+                                "value": null
+                            }
+            ]
+                 },
+                 {
+                    "stokkart_id": 1,
+                    "sira_id": 2,
+                    "talimatturu_id": 1,
+                    "talimat_tanim": "KESİM",
+                    "alt_stokkart_id": 30066,
+                    "stok_adi": "jakarlı interlok",
+                    "modelyeri": "Sıra 2 ",
+                    "renk_id": 9,
+                    "renk_adi": "Navy",
+                    "aciklama": "Bu açıklama bizi yoracak gibi",
+                    "birim_id": 5,
+                    "birim_adi": "Kilogram",
+                    "birim_id3": 23,
+                    "birim_adi3": "Metre",
+                    "pivotMatrixData": [
+                        {
+                            "name": "94 OSFA",
+                            "value": null
+                        },
+                        {
+                            "name": "95 38/32",
+                            "value": null
+                        },
+                        {
+                            "name": "96 40/34",
+                            "value": null
+                        },
+                        {
+                            "name": "97 42/36",
+                            "value": null
+                        },
+                        {
+                            "name": "99 46/40",
+                            "value": null
+                        },
+                        {
+                            "name": "100 48/42",
+                            "value": null
+                        },
+                        {
+                            "name": "101 50/44",
+                            "value": null
+                        },
+                        {
+                            "name": "102 52/46",
+                            "value": null
+                        },
+                        {
+                            "name": "103 54/48",
+                            "value": null
+                        },
+                        {
+                            "name": "104 56/50",
+                            "value": null
+                        },
+                        {
+                            "name": "108 182",
+                            "value": 5
+                        },
+                        {
+                            "name": "109 2-3",
+                            "value": null
+                        },
+                        {
+                            "name": "110 YLG",
+                            "value": null
+                        },
+                        {
+                            "name": "111 YMD",
+                            "value": null
+                        },
+                        {
+                            "name": "112 YSM",
+                            "value": null
+                        },
+                        {
+                            "name": "113 YXL",
+                            "value": null
+                        }
+            ]
+                }
+                ];
+                createGrid(data);
+            })
+
+        </script>
+
+</body>
+</html>

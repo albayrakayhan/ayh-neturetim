@@ -1,0 +1,42 @@
+﻿<form id="calismayeriForm" class="ui-front">
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label>Çalışma Yeri</label>
+            <select id="calismayeri" name="calismayeri" class="form-control"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label>Görev</label>
+            <select id="gorev" name="gorev" class="form-control"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label>Departman</label>
+            <select id="departman" name="departman" class="form-control"></select>
+        </div>
+    </div>
+
+    <input id="hfId" name="hfId" value="" type="hidden" />
+
+    <script>
+        $(function () {
+            parametre.init(
+                {
+                    select: {
+                        personelGorevControlId: 'gorev',
+                        personelDepartmanControlId: 'departman',
+                        personelCalismaYeriControlId: 'calismayeri',
+                    }
+                });
+        });
+
+        //$(function () {
+        //    personelkart.Parametreler.gorevler();
+        //    personelkart.Parametreler.departmanlar();
+        //    personelkart.Parametreler.calismayeri();
+        //})
+
+    </script>
+</form>

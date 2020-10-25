@@ -1,0 +1,35 @@
+﻿<form id="varyantFrom">
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label for="sku_no">Sku No</label>
+            <input type="text" class="form-control" name="sku_no" id="sku_no" maxlength="20" placeholder="Sku No Giriniz">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <div class="form-group col-sm-12 no-padding">
+                <div class="groupListTop w100">
+                    <h2 class="border-bottom">Beden Grupları</h2>
+                    <ul class="groupList bedenGruplari">
+                        @*<li><label for="A">A</label><input type="checkbox" class="form-control" name="A" id="A" /></li>*@
+
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 scrollCont groupDetayList">
+            </div>
+        </div>
+    </div>
+    <input id="hfId" name="hfId" value="" type="hidden" />
+    <script>
+        parametre.init(
+                       {
+                           select: {
+                               bedenGrubuControlId: 'bedenGrubu',
+                               bedenDetayControlId: 'beden_id'
+                           }
+                       });
+
+    </script>
+</form>

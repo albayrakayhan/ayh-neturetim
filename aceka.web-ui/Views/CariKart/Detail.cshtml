@@ -1,0 +1,237 @@
+﻿@model long 
+@{
+    ViewBag.Title = "Cari Kart Detay";
+}
+<form id="CarikartTable">
+    <input id="hfcarikart_id" name="hfcarikart_id" value="@Model" type="hidden" />
+    <!--Search elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="box box-warning col-sm-12">
+            <div class="box-body">
+                <div class="row">
+                    <!--items-->
+                    <div class="col-sm-6">
+                        <div class="form-group col-sm-6">
+                            <label for="carikart_id">Cari ID</label>
+                            <input type="text" class="form-control" name="carikart_id" id="carikart_id" value="@Model" disabled />
+                            @*<input id="carikart_id" name="carikart_id" value="@Model" type="hidden" />*@
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Statü </label>
+                            <select class="form-control" name="statu" id="statu">
+                                <option value="true">Aktif</option>
+                                <option value="false">Pasif</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="cari_unvan">Cari Unvan</label>
+                            <input type="text" class="form-control" name="cari_unvan" id="cari_unvan" value="">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>İlgili Şube*</label>
+                            <input type="text" class="form-control " placeholder="" name="sube_cari_unvan" id="sube_cari_unvan" value=""><i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="finans_sorumlu_carikart_idx">@*Finans Sorumlusu**@</label>
+                            <input type="text" class="form-control" placeholder="" name="finans_sorumlu_cari_unvanx" id="finans_sorumlu_cari_unvanx" value="Fasoncu ise carikart_talimat tablosundan talimatları getir. Özel Alanlar Sekmesine Eklendi."><i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                        </div>
+                    </div>
+                    <!--items-->
+                    <!--items-->
+                    <div class="col-sm-6">
+                        <div class="form-group col-sm-6">
+                            <label>Özel Kodu</label>
+                            <input type="text" class="form-control" name="ozel_kod" id="ozel_kod" value="">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Cari Tipi*</label>
+                            <select class="form-control" name="carikart_tipi_id" id="carikart_tipi_id"></select>
+                            <input type="hidden" ty class="form-control" name="carikart_turu_id" id="carikart_turu_id"/>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="ana_carikart_id">Ana Cari Ünvan -<b class="FontLarger" style="color: red;">Burası Autocomplate</b> </label>
+                            <input type="text" class="form-control" name="ana_cari_unvan" id="ana_cari_unvan" value=""><i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="satin_alma_sorumlu_carikart_idx">@*Satınalma Sorumlusu**@</label>
+                            <input type="text" class="form-control" placeholder="" name="satin_alma_sorumlu_cari_unvanx" id="satin_alma_sorumlu_cari_unvanx" value="Özel Alanlar Sekmesine Eklendi."> <i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="satis_sorumlu_carikart_idx">@*Satış Sorumlusu**@</label>
+                            <input type="text" class="form-control" placeholder="" name="satis_sorumlu_cari_unvanx" id="satis_sorumlu_cari_unvanx" value="Özel Alanlar Sekmesine Eklendi.">
+                            <i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                        </div>
+                    </div>
+                    <!--items-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Search elements-->
+    <!--Tabler elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs xsFont">
+                        <li class="active"><a href="#iletisim" data-toggle="tab">İletişim Bilgileri</a></li>
+                        <li><a href="#finans" data-toggle="tab">Finans Bilgileri</a></li>
+                        <li><a href="#rapor" data-toggle="tab">Rapor Parametreleri</a></li>
+                        <li><a href="#ozelalanlar" data-toggle="tab">Özel Alanlar</a></li>
+                        <li><a href="#sube" data-toggle="tab">Şube Listesi</a></li>
+                        <li><a href="#posta" data-toggle="tab">E-Posta Grubu</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--_iletisim-->
+                        @Html.Partial("_iletisim")
+                        <!--_iletisim-->
+                        <!--_finans-->
+                        @Html.Partial("_finans")
+                        <!--_finans-->
+                        <!--_rapor-->
+                        @Html.Partial("_raporparametreleri")
+                        <!--_rapor-->
+                        <!--_ozel-->
+                        @Html.Partial("_ozelalanlar")
+                        <!--_ozel-->
+                        <!--_sube-->
+                        @Html.Partial("_sube")
+                        <!--_sube-->
+                        <!--_posta-->
+                        @Html.Partial("_posta")
+                        <!--_posta-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Tabler elements-->
+    <!--Save Button-->
+    <section class="content heightAuto">
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <button type="submit" onclick="carikartlar.put.send();" class="btn btn-primary col-sm-2 fright">Kaydet</button>
+            </div>
+        </div>
+    </section>
+</form>
+@section scripts
+{
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+  <script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("/assets/dist/js/stokKartDetail.js")"></script>
+
+    <script>
+        $(function () {
+            parametre.init(
+                   {
+                       select: {
+                           //carikartTipControlId     : 'carikart_tipi_id',
+                           // ulkeControlId:'ulke_id',
+                           //iletişim sayfası İrsaliye alanları.
+                           postakodu               :    'postakodu',
+                           adres                   :    'adres',
+                           masrafMerkeziControlId  :    'masraf_merkezi_id',
+                           cariodemeControlId      :    'odeme_sekli_id',
+                           parabirimControlId      :    'pb',
+                           fiyattipiControlId      :    'fiyattipi',
+                           odemeplaniControlId     :    'odeme_plani_id',
+                           muhasekodControlId      :    'muh_kod',
+                           //vergiDaireleriControlId :    'vergi_dairesi',
+                           ulkeControlId           :    'ulke_id',
+                           sehirControlId          :    'sehir_id',
+                           ilceControlId           :    'ilce_id',
+                           semtControlId           :    'semt_id',
+                           ulkeControl2Id          :    'irs_ulke_id',
+                           sehirControl2Id         :    'irs_sehir_id',
+                           ilceControl2Id          :    'irs_ilce_id',
+                           semtControl2Id          :    'irs_semt_id',
+                       }
+                   });
+           
+            carikart.autocomplate.vergiDaireleri();
+            carikartlar.get.init(@Model);
+            parametre.carikartTipListesi('carikart_tipi_id', 1); //carikart_turu_id=1 normal carilerin listesi
+         
+            
+            //Rapor parametrelerini dolduruyoruz.
+            parametre.raporParametreleri({
+                labels: ['parametre_1', 'parametre_2', 'parametre_3', 'parametre_4', 'parametre_5', 'parametre_6', 'parametre_7'],
+                selectBoxes: ['cari_parametre_1', 'cari_parametre_2', 'cari_parametre_3', 'cari_parametre_4','cari_parametre_5','cari_parametre_6','cari_parametre_7']
+            });
+
+
+
+            //Fatura Adresi Kısmı
+            parametre.ulke_sehir_ilce_semt.ulkeler('ulke_id'); //Ülke select ini dolduruyor.
+
+            //İrsaliye Adresi Kısmı
+            parametre.ulke_sehir_ilce_semt.ulkeler('irs_ulke_id'); //Ülke select ini dolduruyor.
+
+            carikartlar.search.init();
+            carikartlar.get.genelUst(@Model, {
+                //carikart_id:'carikart_id',
+                //cari_unvan:'cari_unvan',
+                statu:'statu',
+                //carikart_tipi_id:'carikart_tipi_id',
+                //ozel_kod:'ozel_kod',
+                //ana_carikart_id:'ana_carikart_id',
+                //ana_cari_unvan:'ana_cari_unvan',
+                //sube_carikart_id:'sube_carikart_id',
+                //satin_alma_sorumlu_carikart_id:'satin_alma_sorumlu_carikart_id',
+                //satis_sorumlu_carikart_id:'satis_sorumlu_carikart_id'  ,
+                //finans_sorumlu_cari_unvan:'finans_sorumlu_cari_unvan',
+                //satis_sorumlu_cari_unvan:'satis_sorumlu_cari_unvan',
+                //satin_alma_sorumlu_cari_unvan:'satin_alma_sorumlu_cari_unvan',
+
+                alacak_listesinde_cikmasin:'alacak_listesinde_cikmasin',
+                odeme_listesinde_cikmasin:'odeme_listesinde_cikmasin',
+                //Rapor Parametreleri.
+                cari_parametre_1:'cari_parametre_1',
+                cari_parametre_2:'cari_parametre_2',
+                cari_parametre_3:'cari_parametre_3',
+                cari_parametre_4:'cari_parametre_4',
+                cari_parametre_5:'cari_parametre_5',
+                cari_parametre_6:'cari_parametre_6',
+                cari_parametre_7:'cari_parametre_7',
+                // masraf_merkezi_id:'masraf_merkezi_id',
+
+            });
+            carikartlar.get.subeListesi(@Model);
+            carikartlar.get.finansBilgileri(@Model);
+            carikartlar.get.bankaHesapBilgileri(@Model);
+            //parametre.ulke_sehir_ilce_semt.ulkeler();
+            carikartlar.get.finansFaturaIrsaliyeAdresi(@Model,{
+                iletisim_adres_tipi_id:'iletisim_adres_tipi_id',
+                ulke_id:'ulke_id',
+                sehir_id:'sehir_id',
+                ilce_id:'ilce_id',
+                semt_id:'semt_id'
+            },
+            {
+                ulke_id:'irs_ulke_id',
+                sehir_id:'irs_sehir_id',
+                ilce_id:'irs_ilce_id',
+                semt_id:'irs_semt_id',
+            }
+                
+            );
+
+            carikartlar.get.finansCariNotlar(@Model);
+            carikartlar.get.finansIletisim(@Model);
+            carikartlar.get.ozelAlanlar(@Model);
+            carikartlar.get.raporParametreleri(@Model);
+            carikartlar.get.epostaGruplari(@Model);
+            //$("#baslamatarihi").datepicker({
+            //    dayNames: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
+            //    dayNamesMin: ["Pts", "Sal", "Çar", "Per", "Cum", "Cts", "Paz"],
+            //    monthNames: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+            //});
+        });
+    </script>
+}

@@ -1,0 +1,45 @@
+﻿<div class="active tab-pane" id="genelTab">
+    <div class="row">
+        <!--Tab elements-->
+        <section class="content heightAuto nPadding-bottom">
+            <div class="col-md-12">
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs xsFont">
+                                <li class="active"><a href="#adetGenel" data-toggle="tab">Adetler</a></li>
+                                <li><a href="#fiyatGenel" data-toggle="tab">Fiyatlar</a></li>
+                                <li><select class="form-control" name="pb" id="pb"></select></li>
+
+                            </ul>
+                            <div class="tab-content">
+
+                                <!--varyantlar-->
+                                @Html.Partial("_adetGenel")
+                                <!--varyantlar-->
+                                <!--varyantlar-->
+                                @Html.Partial("_fiyatGenel")
+                                <!--varyantlar-->
+                                <!--varyantlar-->
+                                @*@Html.Partial("_dovizGenel")*@
+                                <!--varyantlar-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2 no-padding text-center imageItem">
+                        <a href="#" class="selectedImageHref fright" target="_blank">
+                            <img class="img-responsive selectedImageSrc" src="~/assets/dist/img/photo2.png" />
+                            <span>Resim Aç</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Tab elements-->
+        
+       
+             
+    </div>
+</div>

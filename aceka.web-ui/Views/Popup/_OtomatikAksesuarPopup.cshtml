@@ -1,0 +1,75 @@
+﻿@*<section class="content heightAuto nPadding-bottom nPadding-top">
+        <div class="box box-danger padding-2">
+            <div class="box-body">
+                <div class="row">
+                    <section class="content heightAuto nPadding-bottom">
+                        <div id="talimatTuru" class="relative compulsory"></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    @section scripts
+    {
+        <script src="@Url.Content("~/assets/plugins/iCheck/icheck.min.js")"></script>
+        <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+        <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+        <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+        <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+        <script src="@Url.Content("~/assets/dist/js/aceka.genelayarlar.js")"></script>
+        <script src="@Url.Content("~/assets/dist/js/aceka.modelkart.js")"></script>
+        <script src="@Url.Content("~/assets/dist/js/aceka.ilkMadde.js")"></script>
+        <script src="@Url.Content("~/assets/dist/js/search.js")"></script>
+        <script>
+            $(function(){
+                carikartlar.get.otomatikAksesuar.init();
+                //genelayarlar.get.talimatlarGet.init(); -- Popup içinde açılacak olan gride INIT fonksiyonu gelecek.
+            })
+        </script>
+    }*@
+
+<form id="bankaHesapForm" class="ui-front">
+    <div class="row">
+        <div class="form-group col-sm-3">
+            <label>Koşul Türleri</label>
+            <input type="text" class="form-control" name="grup_adi" id="grup_adi" maxlength="20">
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Koşul Alanı</label>
+            <select class="form-control" name="param_tanim" id="param_tanim"></select>
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Operatör</label>
+            <select class="form-control" name="operator_liste" id="operator_liste"></select>
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Koşul</label>
+            <input type="text" class="form-control" name="cevap_liste_sql" id="cevap_liste_sql" maxlength="500">
+            @*<select class="form-control" name="cevap_liste_sql" id="cevap_liste_sql"></select>*@
+        </div>
+    </div>
+    <input id="hfId" name="hfId" value="" type="hidden" />
+    <script>
+        $(function () {
+            parametre.init(
+                       {
+                           select: {
+                               param_tanim: 'pb1',
+                               bankaControlId: 'banka_id',
+                           }
+                       });
+
+            //stokkart_tipi_id selected change olayı
+            $('#banka_id').on('change', function () {
+                var val = $(this).val();
+                //console.log(val)
+                if (val != '') {
+                    parametre.subeListesi('banka_sube_id', val);
+
+                }
+            });
+
+        })
+
+    </script>
+</form>

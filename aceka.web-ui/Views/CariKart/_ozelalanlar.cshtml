@@ -1,0 +1,36 @@
+﻿<div class="tab-pane ozelaln" id="ozelalanlar">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box-body">
+                <div class="form-group col-sm-12">
+                    <div class="form-group col-sm-12">
+                        <label for="satin_alma_sorumlu_carikart_id">Satınalma Sorumlusu*</label>
+                        <input type="text" class="form-control" placeholder="" name="satin_alma_sorumlu_cari_unvan" id="satin_alma_sorumlu_cari_unvan" value=""><i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="satis_sorumlu_carikart_id">Satış Sorumlusu*</label>
+                        <input type="text" class="form-control" placeholder="" name="satis_sorumlu_cari_unvan" id="satis_sorumlu_cari_unvan" value="">
+                        <i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                    </div>
+                <div class="form-group col-sm-12">
+                    <label for="finans_sorumlu_carikart_idx">Finans Sorumlusu*</label>
+                    <input type="text" class="form-control" placeholder="" name="finans_sorumlu_cari_unvan" id="finans_sorumlu_cari_unvan" value=""><i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                </div>
+                <div class="form-group col-sm-12">
+                    <label for="baslama_tarihi">Başlama Tarihi</label>
+                    <input type="text" class="form-control"  name="baslamatarihi" id="baslamatarihi" >
+                </div>
+                <div class="form-group col-sm-12">
+                    <label for="ozel">Özel</label>
+                    <input type="text" class="form-control"  name="ozel" id="ozel" value="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+@section scripts
+{
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    }

@@ -1,0 +1,412 @@
+﻿@{
+    ViewBag.Title = "Sipariş Arama Ekranı";
+
+}
+
+<!--Search elements-->
+<div class="nav-tabs-custom" style="background:rgba(255, 255, 255, 0.00) !important;">
+    <ul class="nav nav-tabs xsFont" style="display:none"></ul>
+    <div class="tab-content" style="padding:0px !important;background:rgba(255, 255, 255, 0.00) !important;">
+        <div class="active tab-pane" id="searchTab">
+            <section class="content heightAuto nPadding-bottom">
+                <div class="box box-primary">
+                    <div class="box-body">
+                        <div class="row">
+
+                            <div class="form-group col-sm-2">
+                                <label for="SipNo">Sipariş No*</label>
+                                <input type="text" class="form-control" id="siparis_no" name="siparis_no" data-id="" placeholder="Sipariş No">
+                                <i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label for="orjAdi">Model No*</label>
+                                <input type="text" class="form-control" id="stokKodu" name="stokKodu" placeholder="Model No">
+                                <i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                                @*<input type="text" class="form-control" id="stok_kodu" name="stok_kodu"  value=""  placeholder="Model No">*@
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label for="modelAdi">Model Adı*</label>
+                                <input type="text" class="form-control" id="stok_adi" name="stok_adi" placeholder="Model Adı">
+                                <i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                            </div>
+
+                            <div class="form-group col-sm-2">
+                                <label for="muscarikartid">Müşteri</label>
+                                <select class="form-control" name="carikart_id" id="carikart_id"></select>
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label>Sezonlar</label>
+                                <select class="form-control" name="sezon_id" id="sezon_id"></select>
+                            </div>
+                            @*<div class="form-group col-sm-11">
+                                    <label for="renkAdi">Renk Adi*</label>
+                                    <input type="text" class="form-control" name="renk_adi" id="renk_adi" placeholder="Giriniz">
+                                </div>*@
+                            <div class="form-group col-sm-1">
+                                <button type="button" class="btn btn-info pull-right searchBtn aramaSiparisBtn">Ara</button>
+                            </div>
+                            <span class="col-sm-12 pull-right xsFont red">Lütfen (*) Alanları Doldurunuz!</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!--Search elements-->
+            <!--table elements-->
+            <section class="content heightAuto nPadding-bottom nPadding-top">
+                <div class="box box-danger padding-2">
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="icons pull-right">
+                                <button type="button" class="btn btn-default btn-sm" title="Yazdır"><i class="fa fa-print"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" title="Dışa Aktar"><i class="fa fa-exchange"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" title="E-posta Gönder"><i class="fa fa-envelope-o"></i></button>
+                            </div>
+                            <table id="siparisKart" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="widthTable allCheckBox">Hepsini Seç</th>
+                                        <th>Sipariş No</th>
+                                        <th>Müşteri</th>
+                                        <th>Model No</th>
+                                        <th>Model Adı</th>
+                                        <th>Sipariş Tarihi</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="detailTab" class="tab-pane">
+            <form id="siparisKart">
+                <input id="hfsiparis_id" name="hfsiparis_id" value="@Model" type="hidden" />
+                <!--Search elements-->
+                <section class="content heightAuto nPadding-bottom">
+                    <div class="box box-warning">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="form-group col-sm-2">
+                                    <label for="siparisId">Sipariş Id</label>
+                                    <input type="text" class="form-control" name="siparis_id" id="siparis_id" value="@Model" placeholder="" disabled />
+                                    @*<input id="hfsiparis_id" name="hfsiparis_id" value="@Model" type="hidden" />*@
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Müşteri *</label>
+                                    <select class="form-control" name="musteri_carikart_id" id="musteri_carikart_id"></select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Sipariş No</label>
+                                    <input type="text" class="form-control" name="detay_siparis_no" id="detay_siparis_no" disabled value="">
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Firma/Bayi *</label>
+                                    <select class="form-control" name="bayi_carikart_id" id="bayi_carikart_id"></select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Satıcı Sipariş No</label>
+                                    <input type="text" class="form-control" name="ref_siparis_no2" id="ref_siparis_no2" value="">
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Firma Sipariş No</label>
+                                    <input type="text" class="form-control" name="ref_siparis_no" id="ref_siparis_no" value="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-2">
+                                    <div class="input-group">
+                                        <label>Model No</label>
+                                        @*<input type="text" name="stokKodu" data-stokkart_id="" id="stokKodu" class="form-control" />*@
+                                        <input type="text" class="form-control modelno" name="stok_kodu" id="stok_kodu" disabled />
+                                        <span class="input-group-btn" style="top :10px;">
+                                            <button class="btn btn-secondary btnModelkartPopup" type="button" style="height:30px;"><i class="fa fa-fw fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Model Tanımı</label>
+                                    <input type="text" class="form-control" name="stok_adi" id="stok_adi" value="Sadece Model adı gelecek. Database e yazılmayacak.">
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Sipariş Türü*</label>
+                                    <select class="form-control" name="siparisturu_id" id="siparisturu_id"></select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Sezon </label>
+                                    <select class="form-control" name="detay_sezon_id" id="detay_sezon_id"></select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Zorluk Grubu</label>
+                                    <select class="form-control" name="zorlukgrubu_id" id="zorlukgrubu_id"></select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Menşe *</label>
+                                    <select class="form-control" name="mense_uretimyeri_id" id="mense_uretimyeri_id"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-2">
+                                    <label>Üretim Yeri*</label>
+                                    <select class="form-control" name="uretimyeri_id" id="uretimyeri_id"></select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Statü</label>
+                                    <select class="form-control" name="statu" id="statu">
+                                        <option value="1">Aktif</option>
+                                        <option value="0">Pasif</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Müşteri Fazlası</label>
+                                    <input type="number" class="form-control" name="musterifazla" id="musterifazla" value="">
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label>Sipariş Not</label>
+                                    <input type="text" class="form-control" name="siparis_not" id="siparis_not" value="">
+                                </div>
+                                <!--Sipariş Tarihi-->
+                                <div class="form-group col-sm-2">
+                                    <label>Sipariş Tarihi</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="siparis_tarihi" name="siparis_tarihi" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                    </div>
+                                </div>
+                                <!--isteme Tarihi-->
+                                <div class="form-group col-sm-2">
+                                    <label>İsteme Tarihi *</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" id="isteme_tarihi" name="isteme_tarihi" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Tahmini Üretim Tarihi-->
+                                <div class="form-group col-sm-2">
+                                    <label>Tahmini Üretim Tarihi</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" id="tahmini_uretim_tarihi" name="tahmini_uretim_tarihi" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Müşteri Teyitli-->
+                                <div class="col-sm-2" style="text-align:left">
+                                    <a class="btn btn-default" onclick="Geri();">Aramaya Dön</a>
+                                </div>
+                                <div class="col-sm-10" style="text-align: right;">
+                                    <div class="form-group col-sm-8">
+                                        <label>Müşteri Teyitli</label>
+                                        <input class="brm" type="checkbox" name="ref_link_status" id="ref_link_status">
+                                    </div>
+                                    <div class="form-group col-sm-4  fLeft">
+                                        <button type="submit" id="onayButton" name="onayButton" class="btn btn-info">Onay</button>
+                                        <button type="button" id="onayGecmisi" class="btn btn-warning" onclick="smodelkart.get.onayGecmisi(@Model);">Onay Geçmişi</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--Search elements-->
+                <!--Tab elements-->
+                <section class="content heightAuto nPadding-bottom" style="padding-top:0px !important;">
+                    <div class="form-body">
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs xsFont">
+                                    <li class="active"><a href="#genelTab" data-toggle="tab">Genel</a></li>
+                                    <li><a href="#detaylarTab" data-toggle="tab">Detaylar</a></li>
+                                    <li><a id="ilkMaddeKumasConTab" href="#ilkMaddeKumasCon" data-toggle="tab">İlk Madde Kumaş</a></li>
+                                    <li><a id="ilkMaddeAksesuarConTab" href="#ilkMaddeAksesuarCon" data-toggle="tab">İlk Madde Aksesuar</a></li>
+                                    <li><a id="ilkMaddeIplikConTab" href="#ilkMaddeIplikCon" data-toggle="tab">İlk Madde İplik</a></li>
+                                    @*<li><a href="#olculerTab" data-toggle="tab">Ölçüler</a></li>*@
+                                    <li><a href="#talimatTab" data-toggle="tab">Talimatlar</a></li>
+                                    <li><a href="#notlarTab" data-toggle="tab">Notlar</a></li>
+                                    @*<li><a href="#onaylarTab" data-toggle="tab">Onaylar</a></li>
+                                        <li><a href="#dikimTab" data-toggle="tab">Dikim Sonucu</a></li>*@
+                                </ul>
+                                <div class="tab-content">
+                                    <!--Genel-->
+                                    @Html.Partial("_genel")
+                                    <!--Genel-->
+                                    <!--detaylar-->
+                                    @Html.Partial("_detaylar")
+                                    <!--detaylar-->
+                                    <!--Kumaş-->
+                                    @Html.Partial("_IlkMaddeKumas")
+                                    <!--Kumaş-->
+                                    <!--Aksesuar-->
+                                    @Html.Partial("_IlkMaddeAksesuar")
+                                    <!--Aksesuar-->
+                                    <!--İplik-->
+                                    @Html.Partial("_IlkMaddeIplik")
+                                    <!--İplik-->
+                                    <!--talimatlar-->
+                                    @Html.Partial("_talimatlar")
+                                    <!--talimatlar-->
+                                    <!--notlar-->
+                                    @Html.Partial("_notlar")
+                                    <!--notlar-->
+                                    <!--onaylar-->
+                                    @*@Html.Partial("_onaylar")*@
+                                    <!--onaylar-->
+                                    <!--Dikim Sonucu-->
+                                    @*@Html.Partial("_dikimSonucu")*@
+                                    <!--Dikim Sonucu-->
+                                </div>
+                            </div>
+                    </div>
+                </section>
+                <!--Tab elements-->
+                <!--Save Button-->
+                <section class="content heightAuto">
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <button type="submit" onclick="siparis.put.send();" class="btn btn-primary col-sm-2 fright">Kaydet</button>
+                        </div>
+                    </div>
+                </section>
+                <input id="siparisOzelStokkartIDs" name="siparisOzelStokkartIDs" type="hidden" />
+
+            </form>
+        </div>
+    </div>
+</div>
+<!--table elements-->
+<button class="newBtn btn btn-danger" onclick="location='@Url.Action("new","siparis")'"><i class="fa fa-plus"></i></button>
+
+@section scripts
+{
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparis.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparis.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.modelkart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.stokkart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.stokkart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparisIlkMadde.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/dist/js/search.js")"></script>
+
+    <script>
+        function Geri() {
+            $("#searchTab").attr("class", "active tab-pane");
+            $("#detailTab").attr("class", "tab-pane");
+        }
+        $(function () {
+            parametre.init(
+                {
+                    select: {
+                        sezonControlId: 'sezon_id'  //sezon select' ini dolduruyoruz.
+                    }
+                });
+        });
+
+
+        carikartlar.get.musteriListesi('carikart_id');
+        siparis.search.init();
+
+        function SiparisDetayYukle(id) {
+            modelkart.search.init();
+            parametre.init(
+                {
+                    select: {
+                        siparisturuControlId: 'siparisturu_id',
+                        gercekuretimyeriControlId: 'menseuretimyeri_id',
+                        sezonControlId: 'detay_sezon_id',
+                        uretimyeriControlId: 'uretimyeri_id',
+                        zorlukGrubuControlId: 'zorlukgrubu_id',
+                        //musteri_carikart_id: 'musteri_carikart_id',
+                        uretimyeriControlId: 'uretimyeri_id',
+                        gercekuretimyeriControlId: 'mense_uretimyeri_id',
+                    }
+                });
+            siparis.get.init(id);
+
+            //siparis.search.init();
+            carikartlar.get.musteriListesi('musteri_carikart_id');
+            carikartlar.get.firmaBayiListesi('bayi_carikart_id');
+            parametre.parabirimListesi('pb');
+            siparis.get.genelUst(id, {
+                stok_kodu: 'stok_kodu',
+                sezon_id: 'sezon_id',
+                siparisturu_id: 'siparisturu_id',
+                zorlukgrubu_id: 'zorlukgrubu_id',
+                uretimyeri_id: 'uretimyeri_id',
+                mense_uretimyeri_id: 'mense_uretimyeri_id',
+                statu: 'statu',
+                ref_siparis_no: 'ref_siparis_no',
+                siparis_not: 'siparis_not',
+                musterifazla: 'musterifazla',
+                siparis_tarihi: 'siparis_tarihi',
+                isteme_tarihi: 'isteme_tarihi',
+                tahmini_uretim_tarihi: 'tahmini_uretim_tarihi',
+                // siparisturu_id: 'siparisturu_id',
+                siparis_id: 'siparis_id',
+            });
+
+            siparisIlkMadde.init();
+            siparis.adetler.init();
+            /*Talimatlar Kendo Star*/
+            siparis.get.talimatlar(id);
+            let TemptalimatData = siparis.data.talimatlar[id];
+            let talimatData = [];
+            if (TemptalimatData != undefined) {
+                TemptalimatData.forEach(function (item, i) {
+                    talimatData.push({
+                        siparis_id: item.siparis_id,
+                        aciklama: item.aciklama,
+                        talimat_adi: item.talimat_adi,
+                        fasoncu_carikart_id: item.fasoncu_carikart_id,
+                        talimatturu_id: item.talimatturu_id,
+                        sira_id: item.sira_id,
+                        stokkart_id: item.stokkart_id,
+                        aciklama: item.aciklama,
+                        talimat_adi: item.talimat_adi,
+                        irstalimat: item.irstalimat,
+                        islem_sayisi: item.islem_sayisi,
+                        cari_unvan: item.cari_unvan
+                    });
+                });
+            }
+            
+            siparis.talimatlar.build("talimatKendo", talimatData);
+            /*Talimatlar Kendo End*/
+
+            //siparis.notlar.init();
+            siparis.get.siparisnotlar(id);
+            let TempnotlarData = siparis.data.notlar[id];
+            if (TempnotlarData != undefined) {
+                let notlarData = [];
+                TempnotlarData.forEach(function (item, i) {
+                    notlarData.push({
+                        siparis_id: item.siparis_id,
+                        aciklama: item.aciklama,
+                        sira_id: item.sira_id
+                    });
+                });
+                siparis.notlar.init();
+                siparis.notlar.build("notlarKendo", notlarData);
+            }
+            else {
+                siparis.notlar.build("notlarKendo", null);
+            }
+            modelkart.get.varyantlar(id);
+        }
+
+
+    </script>
+
+}

@@ -1,0 +1,163 @@
+﻿@model long
+@{
+    ViewBag.Title = "Cari Kart Detay";
+}
+<form id="CarikartTable">
+    <input id="hfcarikart_tipi_id" name="hfcarikart_tipi_id" value="" type="hidden" />
+    <!--Search elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="box box-warning col-sm-12">
+            <div class="box-body">
+                <div class="row">
+                    <!--items-->
+                    <div class="col-sm-6">
+                        <div class="form-group col-sm-6">
+                            <label for="carikart_id">Cari ID</label>
+                            <input type="text" class="form-control" name="stokkart_id" id="carikart_id" value="@Model" placeholder="" disabled />
+                            <input id="carikart_id" name="carikart_id" value="@Model" type="hidden" />
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Statü </label>
+                            <select class="form-control" name="statu" id="statu">
+                                <option value="true">Aktif</option>
+                                <option value="false">Pasif</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="cari_unvan">Cari Unvan</label>
+                            <input type="text" class="form-control" name="cari_unvan" id="cari_unvan" value="">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>İlgili Şube*</label>
+                            <input type="text" class="form-control" placeholder="" name="sube_cari_unvan" id="sube_cari_unvan" value="">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="finans_sorumlu_carikart_id">Finans Sorumlusu*</label>
+                            <input type="hidden" class="form-control" placeholder="" name="finans_sorumlu_carikart_id" id="finans_sorumlu_carikart_id" value="">
+                            <input type="text" class="form-control" placeholder="" name="finans_sorumlu_cari_unvan" id="finans_sorumlu_cari_unvan" value="">
+                        </div>
+                    </div>
+                    <!--items-->
+                    <!--items-->
+                    <div class="col-sm-6">
+                        <div class="form-group col-sm-6">
+                            <label>Özel Kodu</label>
+                            <input type="text" class="form-control" name="ozel_kod" id="ozel_kod" value="">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Cari Tipi*</label>
+                            <select class="form-control" name="carikart_tipi_id" id="carikart_tipi_id"></select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="ana_carikart_id">Ana Cari Ünvan -<b class="FontLarger" style="color: red;">Buradaki Autocomplate Koşulu Nedir? Tezcan</b> </label>
+                            <input type="hidden" class="form-control" name="ana_carikart_id" id="ana_carikart_id" value="">
+                            <input type="text" class="form-control" name="ana_cari_unvan" id="ana_cari_unvan" value="">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="satin_alma_sorumlu_carikart_id">Satınalma Sorumlusu*</label>
+                            <input type="hidden" class="form-control" placeholder="" name="satin_alma_sorumlu_carikart_id" id="satin_alma_sorumlu_carikart_id" value="">
+                            <input type="text" class="form-control" placeholder="" name="satin_alma_sorumlu_cari_unvan" id="satin_alma_sorumlu_cari_unvan" value="">
+
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="satis_sorumlu_carikart_id">Satış Sorumlusu*</label>
+                            <input type="hidden" class="form-control" placeholder="" name="satis_sorumlu_carikart_id" id="satis_sorumlu_carikart_id" value="">
+                            <input type="text" class="form-control" placeholder="" name="satis_sorumlu_cari_unvan" id="satis_sorumlu_cari_unvan" value="">
+                            <i class="glyphicon glyphicon-searchc right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <!--items-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Search elements-->
+    <!--Tab elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs xsFont">
+                        <li class="active"><a href="#iletisim" data-toggle="tab">İletişim Bilgileri</a></li>
+                        <li><a href="#finans" data-toggle="tab">Finans Bilgileri</a></li>
+                        <li><a href="#rapor" data-toggle="tab">Rapor Parametreleri</a></li>
+                        <li><a href="#ozel" data-toggle="tab">Özel Alanlar</a></li>
+                        <li><a href="#sube" data-toggle="tab">Şube Listesi</a></li>
+                        <li><a href="#posta" data-toggle="tab">E-Posta Grubu</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--_iletisim-->
+                        @Html.Partial("_iletisim")
+                        <!--_iletisim-->
+                        <!--_finans-->
+                        @Html.Partial("_finans")
+                        <!--_finans-->
+                        <!--_rapor-->
+                        @Html.Partial("_rapor")
+                        <!--_rapor-->
+                        <!--_ozel-->
+                        @Html.Partial("_ozel")
+                        <!--_ozel-->
+                        <!--_sube-->
+                        @Html.Partial("_sube")
+                        <!--_sube-->
+                        <!--_posta-->
+                        @Html.Partial("_posta")
+                        <!--_posta-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Tab elements-->
+    <!--Save Button-->
+    <section class="content heightAuto">
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <button type="submit" onclick="stokkartilkMadde.put.send();" class="btn btn-primary col-sm-2 fright">Kaydet</button>
+            </div>
+        </div>
+    </section>
+</form>
+@section scripts
+{
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/dist/js/stokKartDetail.js")"></script>
+
+    <script>
+        $(function () {
+            parametre.init(
+                   {
+                       select: {
+                           carikartTipControlId: 'carikart_tipi_id',
+                       }
+                   });
+            carikartlar.search.init();
+
+            carikartlar.get.genelUst(@Model, {
+                //cari_unvan:'cari_unvan',
+                //statu:'statu',
+                carikart_tipi_id:'carikart_tipi_id',
+                //ozel_kod:'ozel_kod',
+                //ana_carikart_id:'ana_carikart_id',
+                //ana_cari_unvan:'ana_cari_unvan',
+                //sube_carikart_id:'sube_carikart_id',
+                //satin_alma_sorumlu_carikart_id:'satin_alma_sorumlu_carikart_id',
+                //satis_sorumlu_carikart_id:'satis_sorumlu_carikart_id'  ,
+                //finans_sorumlu_cari_unvan:'finans_sorumlu_cari_unvan',
+                //satis_sorumlu_cari_unvan:'satis_sorumlu_cari_unvan',
+                //satin_alma_sorumlu_cari_unvan:'satin_alma_sorumlu_cari_unvan',
+
+            });
+            carikartlar.get.subeListesi(@Model);
+        });
+      
+
+
+    </script>
+}

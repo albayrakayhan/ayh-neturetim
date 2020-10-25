@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Sistem Ayarları Ekranı";
+
+}
+<br />
+<section class="content heightAuto nPadding-bottom nPadding-top">
+    <div class="box box-danger padding-2">
+        <div class="box-body">
+            <div class="row">
+                <div class="text-center">
+                    <strong> <label>Sistem Ayarları</label></strong>
+                    <!--<div class="icons pull-right">
+                         <button type="button" class="btn btn-default btn-sm" title="Dışa Aktar"><i class="glyphicon glyphicon-cloud-upload"></i></button>
+                    </div>-->
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs xsFont">
+                                <li class="active"><a href="#ayarGenel" data-toggle="tab">Genel</a></li>
+                                <li><a href="#sistemSiparis" data-toggle="tab">Sipariş/Planlama</a></li>
+                                <li><a href="#sistemKalite" data-toggle="tab">Kalite Kontrol Oranları</a></li>
+                                <li><a href="#sistemEposta" data-toggle="tab">E-Posta</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <!--ayarGenel-->
+                                @Html.Partial("ayarGenel")
+                                <!--ayarGenel-->
+                                <!--sistemSiparis-->
+                                @Html.Partial("_sistemSiparis")
+                                <!--sistemSiparis-->
+                                <!--sistemKalite-->
+                                @Html.Partial("_sistemKalite")
+                                <!--sistemKalite-->
+                                <!--sistemEposta-->
+                                @Html.Partial("_sistemEposta")
+                                <!--sistemEposta-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+@section scripts
+{
+    <script src="@Url.Content("~/assets/dist/js/aceka.genelayarlar.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.stokkart.js")"></script>
+
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparis.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparis.autocomplate.js")"></script>
+    <script src="@Url.Content("/assets/dist/js/siparisDetail.js")" type="text/javascript"></script>
+
+    @*<script src="@Url.Content("~/assets/dist/js/aceka.stokkart.autocomplate.js")"></script>*@
+    <script src="@Url.Content("~/assets/dist/js/aceka.modelkart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+
+    <script>
+        $(function () {
+            $("#tarih").datepicker({
+                dayNames: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
+                dayNamesMin: ["Pts", "Sal", "Çar", "Per", "Cum", "Cts", "Paz"],
+                monthNames: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
+            });
+
+        })
+
+    </script>
+
+    <script>
+        $(function(){
+            genelayarlar.get.sistemGenelGet.init();
+
+            genelayarlar.get.sistemSiparisPlanlamaGet.init();
+
+            genelayarlar.get.sistemKaliteKontrolGet.init();
+        })
+    </script>
+}

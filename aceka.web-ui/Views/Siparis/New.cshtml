@@ -1,0 +1,310 @@
+﻿@{
+    ViewBag.Title = "Sipariş Detay";
+}
+<form id="siparisKart">
+    <input id="hfsiparis_id" name="hfsiparis_id" value="0" type="hidden" />
+    <!--Search elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="box box-warning col-sm-12">
+            <div class="box-body">
+                <div class="row">
+                    <!--items SOL Star-->
+                    <div class="col-sm-6">
+                        <div class="form-group col-sm-6">
+                            <label for="siparisId">Sipariş Id</label>
+                            <input type="text" class="form-control" name="siparis_id" id="siparis_id" value="0" placeholder="" disabled />
+                            @*<input id="hfsiparis_id" name="hfsiparis_id" value="0" type="hidden" />*@
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Müşteri *</label>
+                            <select class="form-control" name="musteri_carikart_id" id="musteri_carikart_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Sipariş No</label>
+                            <input type="text" class="form-control" name="siparis_no" id="siparis_no" value="" disabled>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Firma/Bayi *</label>
+                            @*<select class="form-control" name="firmacarikart_id" id="firmacarikart_id"></select>*@
+                            <select class="form-control" name="bayi_carikart_id" id="bayi_carikart_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Satıcı Sipariş No</label>
+                            <input type="text" class="form-control" name="ref_siparis_no2" id="ref_siparis_no2" value="">
+                        </div>
+                        <!--items-->
+                        <!--items-->
+                        <div class="form-group col-sm-6">
+                            <label>Firma Sipariş No</label>
+                            <input type="text" class="form-control" name="ref_siparis_no" id="ref_siparis_no" value="">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="input-group">
+                                <label>Model No</label>
+                                @*<input type="text" name="stokKodu" data-stokkart_id="" id="stokKodu" class="form-control" />*@
+                                <input type="text" class="form-control modelno" name="stok_kodu" id="stok_kodu" />
+                                <span class="input-group-btn" style="top :10px;">
+                                    <button class="btn btn-secondary btnModelkartPopup" type="button" style="height:30px;"><i class="fa fa-fw fa-search"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Model Tanımı</label>
+                            <input type="text" class="form-control" name="stok_adi" id="stok_adi" value="Sadece Model adı gelecek. Database e yazılmayacak.">
+                        </div>
+                    </div>
+                    <!--items SOL End-->
+                    <!--items SAĞ Star-->
+                    <div class="col-sm-6">
+                        <div class="form-group col-sm-6">
+                            <label>Sipariş Türü*</label>
+                            <select class="form-control" name="siparisturu_id" id="siparisturu_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Zorluk Grubu</label>
+                            <select class="form-control" name="zorlukgrubu_id" id="zorlukgrubu_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Sezon </label>
+                            <select class="form-control" name="sezon_id" id="sezon_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Menşe *</label>
+                            <select class="form-control" name="mense_uretimyeri_id" id="mense_uretimyeri_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Üretim Yeri*</label>
+                            <select class="form-control" name="uretimyeri_id" id="uretimyeri_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Statü</label>
+                            <select class="form-control" name="statu" id="statu">
+                                <option value="1">Aktif</option>
+                                <option value="0">Pasif</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Müşteri Fazlası</label>
+                            <input type="number" class="form-control" name="musterifazla" id="musterifazla" value="">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Sipariş Not</label>
+                            <input type="text" class="form-control" name="siparis_not" id="siparis_not" value="">
+                        </div>
+                    </div>
+                    <!--items SAĞ End-->
+                </div>
+                <div class="row">
+                    <!--Sipariş Tarihi-->
+                    <div class="col-sm-6">
+                        <div class="form-group col-sm-4">
+                            <div class="form-group">
+                                <label>Sipariş Tarihi</label>
+                                @*<div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    <input type="text" id="siparis_tarihi" name="siparis_tarihi" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask=""> *@
+                                <input id="siparis_tarihi" name="siparis_tarihi">
+
+                            </div>
+                        </div>
+                        <!--isteme Tarihi-->
+                        <div class="form-group col-sm-4">
+                            <div class="form-group">
+                                <label>İsteme Tarihi @**Zorunlu*@</label>
+                                <div class="input-group">
+                                    @*<div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" id="isteme_tarihi" name="isteme_tarihi" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">*@
+                                    <input id="isteme_tarihi" name="isteme_tarihi">
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Tahmini Üretim Tarihi-->
+                        <div class="form-group col-sm-4">
+                            <div class="form-group">
+                                <label>Tahmini Üretim Tarihi</label>
+                                <div class="input-group">
+                                    @*<div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" id="tahmini_uretim_tarihi" name="tahmini_uretim_tarihi" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">*@
+                                    <input id="tahmini_uretim_tarihi" name="tahmini_uretim_tarihi">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Müşteri Teyitli-->
+                    <div class="col-sm-6">
+                        <div class="form-group col-sm-3 nMargin-bottom relative">
+                            <br />
+                            <label>Müşteri Teyitli</label>
+                            <input class="icheck" type="checkbox" name="ref_link_status" id="ref_link_status">
+                        </div>
+                        <div class="form-group col-sm-9  fLeft">
+                            <button type="submit" id="onayButton" name="onayButton" class="btn btn-info w50 searchBtn col-md-4 fLeft">Onay</button>
+                            <button type="button" id="onayGecmisi" class="btn btn-warning w50 onaygecmisiBtn col-sm-6 fright" onclick="smodelkart.get.onayGecmisi(0);">Onay Geçmişi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Search elements-->
+    <!--Tab elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs xsFont">
+                        <li class="active"><a href="#genelTab" data-toggle="tab">Genel</a></li>
+                        <li><a href="#detaylarTab" data-toggle="tab">Detaylar</a></li>
+                        <li><a id="ilkMaddeKumasConTab" href="#ilkMaddeKumasCon" data-toggle="tab">İlk Madde Kumaş</a></li>
+                        <li><a id="ilkMaddeAksesuarConTab" href="#ilkMaddeAksesuarCon" data-toggle="tab">İlk Madde Aksesuar</a></li>
+                        <li><a id="ilkMaddeIplikConTab" href="#ilkMaddeIplikCon" data-toggle="tab">İlk Madde İplik</a></li>
+                        @*<li><a href="#olculerTab" data-toggle="tab">Ölçüler</a></li>*@
+                        <li><a href="#talimatTab" data-toggle="tab">Talimatlar</a></li>
+                        <li><a href="#notlarTab" data-toggle="tab">Notlar</a></li>
+                        @*<li><a href="#onaylarTab" data-toggle="tab">Onaylar</a></li>
+                            <li><a href="#dikimTab" data-toggle="tab">Dikim Sonucu</a></li>*@
+                    </ul>
+                    <div class="tab-content">
+                        <!--Genel-->
+                        @Html.Partial("_genel")
+                        <!--Genel-->
+                        <!--detaylar-->
+                        @Html.Partial("_detaylar")
+                        <!--detaylar-->
+                        <!--Kumaş-->
+                        @Html.Partial("_IlkMaddeKumas")
+                        <!--Kumaş-->
+                        <!--Aksesuar-->
+                        @Html.Partial("_IlkMaddeAksesuar")
+                        <!--Aksesuar-->
+                        <!--İplik-->
+                        @Html.Partial("_IlkMaddeIplik")
+                        <!--İplik-->
+                        <!--talimatlar-->
+                        @Html.Partial("_talimatlar")
+                        <!--talimatlar-->
+                        <!--notlar-->
+                        @Html.Partial("_notlar")
+                        <!--notlar-->
+                        <!--onaylar-->
+                        @*@Html.Partial("_onaylar")*@
+                        <!--onaylar-->
+                        <!--Dikim Sonucu-->
+                        @*@Html.Partial("_dikimSonucu")*@
+                        <!--Dikim Sonucu-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Tab elements-->
+    <!--Save Button-->
+    <section class="content heightAuto">
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <button id="siparisKartSend" type="submit" onclick="siparis.post.send();" class="btn btn-primary col-sm-2 fright">Kaydet</button>
+            </div>
+        </div>
+    </section>
+    <input id="siparisOzelStokkartIDs" name="siparisOzelStokkartIDs" type="hidden" />
+</form>
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/assets/plugins/iCheck/icheck.min.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.stokkart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.ilkMadde.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparisIlkMadde.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparis.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparis.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.stokkart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.modelkart.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("/assets/dist/js/siparisDetail.js")"></script>
+
+
+    <script>
+        $(function () {
+            setTimeout(function () {
+                siparis.get.modelkartPopupSelectedItem(0);
+            }, 2000)
+
+
+            $("#siparis_tarihi").tarihComponentKendo();
+            $("#isteme_tarihi").tarihComponentKendo();
+            $("#tahmini_uretim_tarihi").tarihComponentKendo();
+
+
+            modelkart.search.init();
+            genel.iCheck('input[name="ref_link_status"]');
+
+            parametre.init(
+                   {
+                       select: {
+                           siparisturuControlId: 'siparisturu_id',
+                           gercekuretimyeriControlId: 'menseuretimyeri_id',
+                           sezonControlId: 'sezon_id',
+                           uretimyeriControlId: 'uretimyeri_id',
+                           zorlukGrubuControlId: 'zorlukgrubu_id',
+                           //musteri_carikart_id: 'musteri_carikart_id',
+                           uretimyeriControlId: 'uretimyeri_id',
+                           gercekuretimyeriControlId: 'mense_uretimyeri_id',
+                       }
+                   });
+            siparis.get.init(0);
+            siparis.search.init();
+            carikartlar.get.musteriListesi('musteri_carikart_id');
+            carikartlar.get.firmaBayiListesi('bayi_carikart_id');
+            parametre.parabirimListesi('pb');
+        });
+        siparis.get.talimatlar(0);
+        //siparis.get.siparisnotlar(0);
+        siparis.get.adetler(0, 'tableAdetler');
+
+        siparis.get.fiyatlar(0, 'fiyatSiparis');
+        customValidation.siparis();
+        siparisIlkMadde.init();
+
+        siparis.notlar.init();
+        siparis.notlar.build("notlarKendo", null);
+
+    </script>
+    <script>
+        //$(function () {
+        //    var data = [];
+        //    data = siparis.get.ilkMaddeModel($('#stok_kodu').val(), 20);
+        //    createGrid(data);
+        //});
+    </script>
+    <script>
+        //focusout input tan çıktığımız anda model kart'ın talimatları gelecek.
+        //$("#stok_kodu").focusout(function () {
+        //    var sip = $('#stok_kodu').attr('data-stokkartid');
+        //    if (sip > 0) {
+        //        modelkart.get.talimatlar(sip);
+        //    }
+        //});
+        //function tableToJSON(tblObj) {
+        //    var data = [];
+        //    var $headers = $(tblObj).find("th");
+        //    var $rows = $(tblObj).find("tbody tr").each(function (index) {
+        //        $cells = $(this).find("td");
+        //        data[index] = {};
+        //        $cells.each(function (cellIndex) {
+        //            data[index][$($headers[cellIndex]).html()] = $(this).html();
+        //        });
+        //    });
+        //    return data;
+        //}
+    </script>
+
+}

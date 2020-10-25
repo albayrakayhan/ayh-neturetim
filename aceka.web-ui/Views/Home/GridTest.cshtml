@@ -1,0 +1,392 @@
+﻿<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.common.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.rtl.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.silver.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.mobile.all.min.css" />
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2017.3.913/js/kendo.all.min.js"></script>
+<script src="~/Scripts/kendo/cultures/kendo.culture.tr-TR.min.js"></script>
+<script src="https://demos.telerik.com/kendo-ui/content/shared/js/products.js"></script>
+ 
+@*<div id="grid"></div>*@
+@*<script>
+    var people = [{
+        firstName: "John",
+        lastName: "Smith",
+        email: "john.smith@telerik.com"
+    },
+                   {
+                       firstName: "Jane",
+                       lastName: "Smith",
+                       email: "jane.smith@telerik.com"
+                   },
+                   {
+                       firstName: "Josh",
+                       lastName: "Davis",
+                       email: "josh.davis@telerik.com"
+                   },
+                   {
+                       firstName: "Cindy",
+                       lastName: "Jones",
+                       email: "cindy.jones@telerik.com"
+                   }];
+
+    $("#grid").kendoGrid({
+        dataSource: people,
+        selectable: true
+    });
+</script>*@
+@*   <script id="template" type="text/x-kendo-tmpl">
+        <tr>
+            <td>
+                #= firstName #
+            </td>
+            <td>
+                #= lastName #
+            </td>
+            <td>
+                <a href="mailto:#= email #">#= email #</a>
+            </td>
+        </tr>
+    </script>
+
+     <div id="grid2"></div>
+            <script>
+            var people = [{
+                firstName: "John",
+                lastName: "Smith",
+                email: "john.smith@telerik.com"
+            },
+                         {
+                             firstName: "Jane",
+                             lastName: "Smith",
+                             email: "jane.smith@telerik.com"
+                         },
+                         {
+                             firstName: "Josh",
+                             lastName: "Davis",
+                             email: "josh.davis@telerik.com"
+                         },
+                         {
+                             firstName: "Cindy",
+                             lastName: "Jones",
+                             email: "cindy.jones@telerik.com"
+                         }];
+            $("#grid2").kendoGrid({
+                columns: [
+                  { field: "firstName", title: "Adı" },
+                  { field: "lastName", title: "Soyadı" },
+                  { field: "email", title: "E-Posta" },
+                  {command:'destory' }
+                ],
+                dataSource: people,
+                toolbar: ["create", "save", "cancel"],
+                editable: true,
+                columnMenu: true, // Grid deki kolonlarında gözüküyor. Başlıklarının görünümünü ayarlıyoruz.
+                //scrollable: true,
+                //sortable: true,
+                //pageable: true,
+                //groupable: true,
+                //navigatable: true,
+                //rowTemplate: kendo.template($("#template").html())  //email alanına tıkladığımızda mail atabiliriz. outlook açılır.
+
+            });
+        </script>*@
+<div id="example">
+    <div id="grid"></div>
+    <script>
+       
+          var dataSource = new kendo.data.DataSource({
+            pageSize: 20,
+            data: products,
+            autoSync: true,
+            schema: {
+              model: {
+                id: "ProductID",
+                fields: {
+                  ProductID: { editable: false, nullable: true },
+                  ProductName: { validation: { required: true } },
+                  Category: { defaultValue: { CategoryID: 1, CategoryName: "Beverages"} },
+                  UnitPrice: { type: "number", validation: { required: true, min: 1} }
+                }
+              }
+            }
+          });
+
+          $("#grid").kendoGrid({
+            dataSource: dataSource,
+            pageable: true,
+            height: 550,
+            toolbar: ["create"],
+            columns: [
+              { field:"ProductName",title:"Product Name" },
+              { field: "Category", title: "Category", width: "180px", editor: categoryDropDownEditor, template: "#=Category.CategoryName#" },
+              { field: "UnitPrice", title:"Unit Price", format: "{0:c}", width: "130px" },
+              { command: "destroy", title: " ", width: "120px" }],
+            editable: true
+          });
+       
+           //dropdownlist oluşturuyırz.
+        function categoryDropDownEditor(container, options) {
+          $('<input required data-text-field="CategoryName" data-value-field="CategoryID" data-bind="value:' + options.field + '"/>')
+          .appendTo(container)
+          .kendoDropDownList({
+            autoBind: false,
+            dataSource: createDataSource(options.field)
+          });
+        }
+
+        function createDataSource(id) {
+          return new kendo.data.DataSource({
+            type: "odata",
+            transport: {
+              read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories"
+            },
+            change: function() {
+              alert(id);
+            }
+          });
+        }
+    </script>
+</div>
+
+
+
+
+//Ayhan
+<div id="example1">
+    <div id="grid1"></div>
+
+    <script>
+  
+    var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
+        dataSource = new kendo.data.DataSource({
+          transport: {
+            read:  {
+              url: crudServiceBaseUrl + "/Products",
+              dataType: "jsonp"
+            },
+            update: {
+              url: crudServiceBaseUrl + "/Products/Update",
+              dataType: "jsonp"
+            },
+            destroy: {
+              url: crudServiceBaseUrl + "/Products/Destroy",
+              dataType: "jsonp"
+            },
+            create: {
+              url: crudServiceBaseUrl + "/Products/Create",
+              dataType: "jsonp"
+            },
+            parameterMap: function(options, operation) {
+              if (operation !== "read" && options.models) {
+                return {models: kendo.stringify(options.models)};
+              }
+            }
+          },
+          batch: true,
+          pageSize: 10,
+          schema: {
+            model: {
+              id: "ProductID",
+              fields: {
+                ProductID: { editable: false, nullable: true },
+                ProductName: { validation: { required: true } },
+                UnitPrice: { type: "number", validation: { required: true, min: 1} },
+                Discontinued: { type: "boolean" },
+                UnitsInStock: { type: "number", validation: { min: 0, required: true } }
+              }
+            }
+          }
+        });
+
+    $("#grid1").kendoGrid({
+      dataSource: dataSource,
+      pageable: true,
+      height: 300,
+      toolbar: ["create"],
+      columns: [
+        { field:"ProductName", title: "Product Name" },
+        { field: "UnitPrice", title:"Unit Price", format: "{0:c}", width: "120px" },
+        { field: "UnitsInStock", title:"Units In Stock", width: "120px" },
+        { field: "Discontinued", width: "120px" },
+        { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }],
+      editable: "popup"
+    });
+  
+    </script>
+</div>
+
+
+
+
+@*  Grid örnekleri
+        // define the HTML table with rows, columns, and data
+    <table id="grid">
+        <colgroup>
+            <col />
+            <col style="width:100px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th data-field="title" data-filterable="false">Title</th>
+                <th data-field="year" data-type="number" data-template="<strong>#=year#</strong>">Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Star Wars: A New Hope</td>
+                <td>1977</td>
+            </tr>
+            <tr>
+                <td>Star Wars: The Empire Strikes Back</td>
+                <td>1980</td>
+            </tr>
+        </tbody>
+    </table>
+
+    // initialize the Grid
+    <script>
+
+        $(document).ready(function () {
+            $("#grid").kendoGrid({
+                sortable: true,
+                filterable: true
+            });
+        });
+
+    </script>
+       // altRowTemplate  örneği
+    <div id="grid1"></div>
+    <script id="alt-template" type="text/x-kendo-template">
+        <tr data-uid="#= uid #">
+            <td colspan="2">
+                <strong>#: name #</strong>
+                <strong>#: age #</strong>
+            </td>
+        </tr>
+    </script>
+    <script>
+        $("#grid1").kendoGrid({
+            dataSource: [
+              { name: "Jane Doe", age: 30 },
+              { name: "John Doe", age: 33 }
+            ],
+            altRowTemplate: kendo.template($("#alt-template").html())
+        });
+    </script>
+
+
+     // altRowTemplate string ile yapılma örneği
+    <div id="grid2"></div>
+    <script>
+        $("#grid2").kendoGrid({
+            dataSource: [{ name: "Jane Doe", age: 30 }, { name: "John Doe", age: 33 }],
+            altRowTemplate: '<tr data-uid="#= uid #"><td colspan="2"><strong>#: name #</strong><strong>#: age #</strong></td></tr>'
+        });
+    </script>
+
+     //  dataSource.read() örneği
+    <div id="grid3"></div>
+    <script>
+        var dataSource = new kendo.data.DataSource({
+            data: [{ name: "Jane Doe" }, { name: "John Doe" }]
+        });
+        $("#grid3").kendoGrid({
+            autoBind: false,
+            dataSource: dataSource
+        });
+        dataSource.read(); // "read()" will fire the "change" event of the dataSource and the widget will be bound
+    </script>
+
+      //   columnResizeHandleWidth örneği.
+    <div id="grid4"></div>
+    <script>
+        var dataSource = new kendo.data.DataSource({
+            data: [{ name: "Jane Doe", age: 11 }, { name: "John Doe", age: 12 }]
+        });
+        $("#grid4").kendoGrid({
+            columnResizeHandleWidth: 20,
+            dataSource: dataSource,
+            resizable: true
+        });
+
+    </script>
+    //Kolon örneği. Kolonlar diziler içinde tanımlanıyor.
+    <div id="grid5"></div>
+    <script>
+        $("#grid5").kendoGrid({
+            columns: ["name", "age"], // two columns bound to the "name" and "age" fields
+            dataSource: [{ name: "Jane", age: 31 }, { name: "John", age: 33 }]
+        });
+    </script>
+
+    //Kolon örneği. Kolonların "field" ve "title" larının belirtilmesi. columns alanında field= alan, title= Kolon Başlığı.
+    <div id="grid6"></div>
+    <script>
+        $("#grid6").kendoGrid({
+            columns: [{
+                field: "name",// create a column bound to the "name" field
+                title: "Name" // set its title to "Name"
+            }, {
+                field: "age",// create a column bound to the "age" field
+                title: "Age" // set its title to "Age"
+            }],
+            dataSource: [{ name: "Jane", age: 30 }, { name: "John", age: 33 }]
+        });
+    </script>
+
+    //columns.command.click örneği. "details" tuşuna tıkladığımızda console' a data.name i yazar.
+    <div id="grid7"></div>
+    <script>
+        $("#grid7").kendoGrid({
+            columns: [
+              { field: "name" },
+              {
+                  command: [{
+                      name: "details",
+                      click: function (e) {
+                          // prevent page scroll position change
+                          e.preventDefault();
+                          // e.target is the DOM element representing the button
+                          var tr = $(e.target).closest("tr"); // get the current table row (tr)
+                          // get the data bound to the current table row
+                          var data = this.dataItem(tr);
+                          console.log("Details for: " + data.name);
+                      }
+                  }]
+              }
+            ],
+            dataSource: [{ name: "Jane Doe" }]
+        });
+    </script>
+
+      //columns.editable. kolonları editliyoruz. Eğer dataItem.name === "Jane" ise "salary" alanı edit oluyor.Aşğıdaki örnekde Jane' in salary alanı edit olurken. Bill 'in salary alanı edit alanı edit olmuyor.
+    <div id="grid8"></div>
+    <script>
+        $("#grid8").kendoGrid({
+            columns: [
+              { field: "name" },
+              {
+                  field: "salary",
+                  editable: function (dataItem) {
+                      return dataItem.name === "Jane";
+                  }
+              }
+            ],
+            editable: true,
+            dataSource: [{ name: "Jane", salary: 2000 }, { name: "Bill", salary: 2000 }]
+        });
+    </script>
+    //columns.selectable örneği. Her bir hücrede onay kutuları (checkbox) bulunan seçili bir sütun oluşturacak ve böylece çok satırlı seçim mümkün olacaktır.
+    <div id="grid9"></div>
+    <script>
+        $("#grid9").kendoGrid({
+            autoBind: false,  //false olması açılışda veriye bağlanamaması anlamına geliyor. Aşağıdaki örnekde ilk yüklemede veriler otomatik olarak bağlanmaz.
+            columns: [
+              { selectable: true },
+              { field: "name" }
+            ],
+            dataSource: [{ name: "Jane Doe" }, { name: "John Doe" }]
+        });
+    </script>*@

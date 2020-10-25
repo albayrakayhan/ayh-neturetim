@@ -1,0 +1,25 @@
+﻿<form id="modelPopupForm" class="ui-front ui-corner-all">
+    <div class="row">
+        <div class="form-group col-sm-10">
+            <label>Model No</label>
+            <input type="text" name="stokKodu" data-id="" id="stokKodu" class="form-control" /><i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+        </div>
+        <div class="form-group col-sm-2">
+            <button type="button" class="btn btn-info pull-right searchBtn btnModelPopup">Ara</button>
+        </div>
+    </div>
+    <div class="row mode-list-item">
+        @*<ul id="modelkartPopupBullet"></ul>*@
+        <ul id="modelkartPopupBullet" class="model-no">
+            @*<li>Ayhan ALBAYRAK Ayhan ALBAYRAK Ayhan ALBAYRAK Ayhan ALBAYRAK Ayhan ALBAYRAK Ayhan ALBAYRAK<i class="fa fa-close"></i></li>
+            <li>Ayhan ALBAYRAK <i class="fa fa-close"></i></li>
+            <li>Ayhan ALBAYRAK <i class="fa fa-close"></i></li>*@
+        </ul>
+    </div>
+
+    <script>
+        $('.model-no li i').click(function () {
+            $(this).parent().remove();
+        }) 
+    </script>
+</form>

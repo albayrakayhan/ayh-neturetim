@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EndofLinModelStoreContainer" CdmEntityContainer="EndofLinEntities">
+    <EntitySetMapping Name="MarsanMail">
+      <EntityTypeMapping TypeName="EndofLinModel.MarsanMail">
+        <MappingFragment StoreEntitySet="MarsanMail">
+          <ScalarProperty Name="sipid" ColumnName="sipid" />
+          <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+          <ScalarProperty Name="TerminTarihi" ColumnName="TerminTarihi" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="SiparisTarihi" ColumnName="SiparisTarihi" />
+          <ScalarProperty Name="FirmaSiparisNo" ColumnName="FirmaSiparisNo" />
+          <ScalarProperty Name="Renk" ColumnName="Renk" />
+          <ScalarProperty Name="StokKodu" ColumnName="StokKodu" />
+          <ScalarProperty Name="SiparisMiktari" ColumnName="SiparisMiktari" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Talimat" ColumnName="Talimat" />
+          <ScalarProperty Name="ReceteNo" ColumnName="ReceteNo" />
+          <ScalarProperty Name="KartNo" ColumnName="KartNo" />
+          <ScalarProperty Name="IsEmriMiktari" ColumnName="IsEmriMiktari" />
+          <ScalarProperty Name="DepoMiktari" ColumnName="DepoMiktari" />
+          <ScalarProperty Name="TopSayisi" ColumnName="TopSayisi" />
+          <ScalarProperty Name="UretilmemisMiktar" ColumnName="UretilmemisMiktar" />
+          <ScalarProperty Name="SonHaraketTarihi" ColumnName="SonHaraketTarihi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarsanMailHesaplari">
+      <EntityTypeMapping TypeName="EndofLinModel.MarsanMailHesaplari">
+        <MappingFragment StoreEntitySet="MarsanMailHesaplari">
+          <ScalarProperty Name="OrmeAktif" ColumnName="OrmeAktif" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+          <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarsanMailOrme">
+      <EntityTypeMapping TypeName="EndofLinModel.MarsanMailOrme">
+        <MappingFragment StoreEntitySet="MarsanMailOrme">
+          <ScalarProperty Name="TüpMay" ColumnName="TüpMay" />
+          <ScalarProperty Name="Fayn" ColumnName="Fayn" />
+          <ScalarProperty Name="Pus" ColumnName="Pus" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="SiparisMiktari" ColumnName="SiparisMiktari" />
+          <ScalarProperty Name="Cinsi" ColumnName="Cinsi" />
+          <ScalarProperty Name="UretimBakiye" ColumnName="UretimBakiye" />
+          <ScalarProperty Name="UretimMiktari" ColumnName="UretimMiktari" />
+          <ScalarProperty Name="IsEmriBakiye" ColumnName="IsEmriBakiye" />
+          <ScalarProperty Name="IsEmriMiktari" ColumnName="IsEmriMiktari" />
+          <ScalarProperty Name="FirmaSiparisNo" ColumnName="FirmaSiparisNo" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="OrmeTerminTarihi" ColumnName="OrmeTerminTarihi" />
+          <ScalarProperty Name="TerminTarihi" ColumnName="TerminTarihi" />
+          <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+          <ScalarProperty Name="sipid" ColumnName="sipid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

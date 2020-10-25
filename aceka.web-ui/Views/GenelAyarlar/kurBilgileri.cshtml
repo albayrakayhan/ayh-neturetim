@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Kur Bilgileri";
+}
+<section class="content heightAuto nPadding-bottom nPadding-top">
+    <div class="box padding-2">
+        <div class="box-body">
+            <div class="row">
+                <section class="content heightAuto nPadding-bottom">
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label>Sene</label>
+                                @*<input type="text" class="form-control" name="tarih" id="tarih">*@
+                                <select type="text" class="form-control" name="sene" id="sene"></select>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Ay</label>
+                                <select type="text" class="form-control" name="ay" id="ay"></select>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label>Döviz</label>
+                                <select class="form-control" name="pb" id="pb"></select>
+                            </div>
+                            <div class="form-group col-sm-1">
+                                <label></label>
+                                <button type="button" id="getir" onclick="genelayarlar.get.kurlar();" class="btn btn-info pull-right">Listele</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="box padding-2">
+        <div class="box-body">
+            <div class="row">
+                <section class="content heightAuto nPadding-bottom">
+                    <div class="box-body">
+                        <div class="row">
+                            <table id="dovizTable" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Tarih</th>
+                                        @*<th>Para Birimi</th>*@
+                                        <th>Alış</th>
+                                        <th>Satış</th>
+                                        <th>Efektif Alış</th>
+                                        <th>Efektif Satış</th>
+                                    </tr>
+                                </thead>
+
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+    @section scripts
+{
+        <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+        <script type="text/javascript" src="@Url.Content("/assets/dist/js/aceka.genelayarlar.js")"></script>
+        <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+        <script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("/assets/dist/js/siparisDetail.js")"></script>
+
+        <script>
+            genelayarlar.get.init();
+            $(function () {
+            //    $("#tarih").datepicker({
+            //        dayNames: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
+            //        dayNamesMin: ["Pts", "Sal", "Çar", "Per", "Cum", "Cts", "Paz"],
+            //        monthNames: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+            //        format: "dd.mm.yyyy",
+            //        language: 'tr'
+            //    });
+                //Selectlerin içlerini dolduruyoruz.
+                parametre.parabirimListesi('pb');
+                parametre.seneler('sene'); 
+                parametre.aylar('ay');
+
+            })
+
+        </script>
+    }

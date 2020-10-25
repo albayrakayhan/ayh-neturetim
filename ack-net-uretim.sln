@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aceka.infrastructure", "aceka.infrastructure\aceka.infrastructure.csproj", "{C4ED3D1A-9D3C-452F-8DA9-4B9671DB352D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aceka.web-api", "aceka.web-api\aceka.web-api.csproj", "{82A881EE-9BF1-46E3-BB56-73942BE4C356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aceka.web-ui", "aceka.web-ui\aceka.web-ui.csproj", "{16CB125A-83DC-4DA9-A4BF-E4ECD1F9D96B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4ED3D1A-9D3C-452F-8DA9-4B9671DB352D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4ED3D1A-9D3C-452F-8DA9-4B9671DB352D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4ED3D1A-9D3C-452F-8DA9-4B9671DB352D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4ED3D1A-9D3C-452F-8DA9-4B9671DB352D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82A881EE-9BF1-46E3-BB56-73942BE4C356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A881EE-9BF1-46E3-BB56-73942BE4C356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A881EE-9BF1-46E3-BB56-73942BE4C356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A881EE-9BF1-46E3-BB56-73942BE4C356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16CB125A-83DC-4DA9-A4BF-E4ECD1F9D96B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16CB125A-83DC-4DA9-A4BF-E4ECD1F9D96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16CB125A-83DC-4DA9-A4BF-E4ECD1F9D96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16CB125A-83DC-4DA9-A4BF-E4ECD1F9D96B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ayhanalbayrak.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = aceka.infrastructure\\aceka.infrastructure.csproj
+		SccProjectName1 = aceka.infrastructure
+		SccLocalPath1 = aceka.infrastructure
+		SccProjectUniqueName2 = aceka.web-api\\aceka.web-api.csproj
+		SccProjectName2 = aceka.web-api
+		SccLocalPath2 = aceka.web-api
+		SccProjectUniqueName3 = aceka.web-ui\\aceka.web-ui.csproj
+		SccProjectName3 = aceka.web-ui
+		SccLocalPath3 = aceka.web-ui
+	EndGlobalSection
+EndGlobal

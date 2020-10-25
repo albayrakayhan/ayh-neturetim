@@ -1,0 +1,237 @@
+﻿@model long
+@{
+    ViewBag.Title = "Depo Kart Detay";
+}
+<form id="depoKartForm">
+    <input id="hfcarikart_id" name="hfcarikart_id" value="@Model" type="hidden" />
+    <select class="form-control" name="hfcarikart_tipi_id" id="hfcarikart_tipi_id"></select>
+    <!--Search elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="box box-warning">
+            <div class="box-body">
+                <div class="row">
+
+                    <!--items1-->
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-12">
+                            <label>Stok Yeri ID</label>
+                            <input type="text" class="form-control" name="carikart_id" id="carikart_id" placeholder="" disabled />
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label>Bağlı Yeri Adı</label>
+                            <input type="text" class="form-control" name="ana_cari_unvan" id="ana_cari_unvan" value="" placeholder="Bağlı Yeri Adı" /><i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Giz Program Kodu</label>
+                            <input type="number" class="form-control" name="giz_yazilim_kodu" id="giz_yazilim_kodu" />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Özel Kodu</label>
+                            <input type="text" class="form-control" name="ozel_kod" id="ozel_kod" value="" placeholder="Özel Kod" />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>E-Arşiv Seri No</label>
+                            <input type="text" class="form-control" name="earsiv_seri" id="earsiv_seri" value="" maxlength="3">
+                        </div>
+
+                    </div>
+                    <!--items1-->
+                    <!--items2-->
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-12">
+                            <label for="carikart_id">Ünvan</label>
+                            <input type="text" class="form-control" name="cari_unvan" id="cari_unvan" placeholder="" />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Stok Yeri Adı*</label>
+                            <select class="form-control" name="carikart_turu_id" id="carikart_turu_id"></select>
+                        </div>
+                         <div class="form-group col-sm-12">
+                            <label>Muhasebe Kodu</label>
+                            <select class="form-control" name="muh_kod" id="muh_kod"></select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Şirket</label>
+                            <select class="form-control" name="sirket_id" id="sirket_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6  relative" style="padding-top:inherit;">
+                            <br />
+                            <input class="iCheck-helper" type="checkbox" name="transfer_depo_kullan" id="transfer_depo_kullan" value="true" /> <label for="stokyeri_kapandi" style="font-weight: normal;">Stok Yeri Kapandı </label>
+                        </div>
+                        <div class="form-group col-sm-6  relative">
+                            <br />
+                            <input class="iCheck-helper" type="checkbox" name="kapali" id="kapali" value="true" /> <label for="stokyeri_kapandi" style="font-weight: normal;">Stok Yeri Kapandı </label>
+                        </div>
+                    </div>
+                    <!--items2-->
+                    <!--items3-->
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-12">
+                            <label>Stok Yeri Tipi*</label>
+                            <select class="form-control" name="carikart_tipi_id" id="carikart_tipi_id"></select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Maraf Merkezi*</label>
+                            <select class="form-control" name="masraf_merkezi_id" id="masraf_merkezi_id"></select>
+                        </div>
+                        <div class="form-group col-sm-12 ">
+                            <label>Statü</label>
+                            <select class="form-control" name="statu" id="statu">
+                                <option value="true">Aktif</option>
+                                <option value="false">Pasif</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>E-Fatura Seri No</label>
+                            <input type="text" class="form-control" name="efatura_seri" id="efatura_seri" value="" maxlength="3">
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>Açılış Tarihi</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="acilis_tarihi" name="acilis_tarihi" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Kapanış Tarihi</label>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="kapanis_tarihi" name="kapanis_tarihi" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12 ">
+                            <button type="button" class="btn btn-info w50 searchBtn col-sm-6 fLeft modalTest">Onay</button>
+                            <button type="button" class="btn btn-warning w50 searchBtn col-sm-6 fright" id="onayGecmisi">Onay Geçmişi</button>
+                        </div>
+                    </div>
+                    <!--items3-->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Search elements-->
+    <!--Tab elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs xsFont">
+                        <li class="active"><a href="#depoiletisim" data-toggle="tab">İletişim Bilgileri</a></li>
+                        <li><a href="#raporparametreleri" data-toggle="tab">Rapor Parametreleri</a></li>
+                        <li><a href="#fiyatlar" data-toggle="tab">Fiyat Tipleri</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--Genel-->
+                        @Html.Partial("_iletisim")
+                        <!--Genel-->
+                        <!--Genel-->
+                        @Html.Partial("_raporparametreleri")
+                        <!--Genel-->
+                        <!--Genel-->
+                        @Html.Partial("_fiyatlar")
+                        <!--Genel-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Tab elements-->
+    <!--Save Button-->
+    <section class="content heightAuto">
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <button type="submit" onclick="depokart.put.send();" class="btn btn-primary col-sm-2 fright">Kaydet</button>
+               
+            </div>
+        </div>
+    </section>
+    <!--Save Button-->
+
+</form>
+
+@section scripts
+{
+    @*<script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>*@
+<script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.depokart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    @*<script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>*@
+
+    <script>
+        $(function () {
+
+            depokart.search.init();
+            depokart.get.init(@Model);
+
+            parametre.carikartTipListesi('carikart_tipi_id', 3);
+            parametre.carikartTurListesi('carikart_turu_id');
+            parametre.depokartRaporParametreleri('cari_parametre_1',3,1);
+            parametre.depokartRaporParametreleri('cari_parametre_2',3,2);
+            parametre.depokartRaporParametreleri('cari_parametre_3',3,3);
+            parametre.depokartRaporParametreleri('cari_parametre_4',3,4);
+            parametre.depokartRaporParametreleri('cari_parametre_5',3,5);
+            parametre.depokartRaporParametreleri('cari_parametre_6',3,6);
+            parametre.depokartRaporParametreleri('cari_parametre_7',6,7);
+
+            parametre.init(
+                   {
+                       select: {
+                           sirketListesiControlId  :    'sirket_id',
+                           postakodu               :    'postakodu',
+                           adres                   :    'adres',
+                           masrafMerkeziControlId  :    'masraf_merkezi_id',
+                           cariodemeControlId      :    'odeme_sekli_id',
+                           parabirimControlId      :    'pb',
+                           fiyattipiControlId      :    'fiyattipi',
+                           odemeplaniControlId     :    'odeme_plani_id',
+                           muhasekodControlId      :    'muh_kod',
+                           vergiDaireleriControlId :    'vergi_dairesi',
+                           ulkeControlId           :    'ulke_id',
+                           sehirControlId          :    'sehir_id',
+                           ilceControlId           :    'ilce_id',
+                           semtControlId           :    'semt_id',
+                       }
+                   });
+            depokart.get.genelUst(@Model, {
+                carikart_id         :'carikart_id',
+                cari_unvan          :'cari_unvan',
+                statu               :'statu',
+                //carikart_tipi_id:'carikart_tipi_id',
+                carikart_turu_id    :'carikart_turu_id',
+                ozel_kod            :'ozel_kod',
+                ana_carikart_id     :'ana_carikart_id',
+                acilis_tarihi       :'acilis_tarihi',
+                kapanis_tarihi      :'kapanis_tarihi',
+                masraf_merkezi_id   :'masraf_merkezi_id',
+           
+            });
+
+            depokart.get.depoiletisimBilgileri(@Model,{
+                //carikart_adres_id:'carikart_adres_id',
+                ulke_id:'ulke_id',
+                sehir_id:'sehir_id',
+                ilce_id:'ilce_id',
+                semt_id:'semt_id'
+            });
+            depokart.get.depoRaporParametreleri(@Model);
+            depokart.get.depoFiyatTipleri(@Model);
+        });
+
+    </script>
+}

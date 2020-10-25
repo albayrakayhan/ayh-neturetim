@@ -1,0 +1,138 @@
+﻿<div class="active tab-pane" id="iletisim">
+    <input type="hidden" class="form-control" placeholder="" name="carikart_id" id="carikart_id" value="">
+    <div class="row">
+        <section class="content heightAuto nPadding-bottom">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-2 no-padding text-center imageItem" >
+                        <a href="#" class="selectedImageHref fLeft" target="_blank">
+                            <br />
+                            <img class="img-responsive selectedImageSrc" src="~/assets/dist/img/nike.png" />
+                            <span>Resim Aç</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-5" style="border-style:solid;">
+                        <u>  <span style="font-size:medium;">Fatura Adresi</span></u>
+                        <br />
+                        <div class="form-group col-sm-6">
+                            <label>Ülke</label>
+                            <select id="ulke_id" name="ulke_id" class="form-control"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Şehir*</label>
+                            <select class="form-control" name="sehir_id" id="sehir_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label >İlçe*</label>
+                            <select class="form-control" name="ilce_id" id="ilce_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label >Semt*</label>
+                            <select class="form-control" name="semt_id" id="semt_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="postakodu"> Posta Kodu</label>
+                            <input type="text" class="form-control" placeholder="" name="postakodu" id="postakodu" value="">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="adres">Adres(Gerekli)*</label>
+                            <input type="text" class="form-control"  name="adres" id="adres" value="">
+                            <i class="glyphicon glyphicon-searchc right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-5" style="border-style:inset; border-color:#ccc;  ">
+                        <u>  <span style="font-size:medium;">İrsaliye Adresi</span></u>
+                        <br />
+                        <div class="form-group col-sm-6">
+                            <input type="hidden" class="form-control" placeholder="" name="irs_carikart_adres_id" id="irs_carikart_adres_id" value="">
+                            <label >Ülke*</label>
+                            <select  class="form-control" name="irs_ulke_id" id="irs_ulke_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Şehir*</label>
+                            <select class="form-control" name="irs_sehir_id" id="irs_sehir_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="irs_ilce_id">İlçe*</label>
+                            <select class="form-control" name="irs_ilce_id" id="irs_ilce_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="irs_semt_id">Semt*</label>
+                            <select class="form-control" name="irs_semt_id" id="irs_semt_id"></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="irs_postakodu">Posta Kodu</label>
+                            <input type="text" class="form-control"   name="irs_postakodu" id="irs_postakodu" value="">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="adres">Adres(Gerekli)*</label>
+                            <input type="text" class="form-control"  name="irs_adres" id="irs_adres" value="">
+                            <i class="glyphicon glyphicon-searchc right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 no-padding text-center imageItem">
+                    </div>
+                    <div class="col-sm-10" style="border-style:inset; border-color:#ccc;  ">
+                        <u>  <span style="font-size:medium;">İletişim Adresi</span></u>
+                        <br />
+                        <div class="form-group col-sm-3">
+                            <label>Fatura Adresi</label>
+                            <select class="form-control" name="iletisim_adres_tipi_id" id="iletisim_adres_tipi_id">
+                                <option value="FA">Fatura Adresi</option>
+                                <option value="IA">İrsaliye Adresi</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label>Telefon 1(Gerekli)</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <input type="text" class="form-control number-mask" name="tel1" id="tel1" value="" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="">  
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="tel2">Telefon 2(Gerekli) </label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <input type="text" class="form-control number-mask" name="tel2" id="tel2" value="" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="yetkili_tel">Yetkili Telefonu</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <input type="text" class="form-control number-mask" name="yetkili_tel" id="yetkili_tel" value="" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="fax">Faks(Gerekli)</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <input type="text" class="form-control number-mask" name="fax" id="fax" value="" inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="websitesi">Web Adresi</label>
+                            <input type="text" class="form-control"  name="websitesi" id="websitesi" value="">
+                            <i class="glyphicon glyphicon-searchc right" aria-hidden="true"></i>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="email">E-Posta(Gerekli)</label>
+                            <input type="text" class="form-control"  name="email" id="email" value="">
+                            <i class="glyphicon glyphicon-searchc right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+ 

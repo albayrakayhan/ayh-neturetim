@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Otomatik Aksesuar Ekleme";
+}
+<br />
+<style>
+
+    #aksesuar > table /* header + data table */ {
+        table-layout: fixed;
+        /*overflow-wrap: break-word;
+        text-overflow: clip;*/
+    }
+
+    /*html {
+        font: 12px sans-serif;
+    }*/
+    .k-grid {
+        width: 100%;
+    }
+
+    #aksesuar {
+        display: inline-block;
+        /*width: auto;*/
+    }
+
+        #aksesuar table {
+            width: 100%;
+        }
+</style>
+<section class="content heightAuto nPadding-bottom nPadding-top">
+    <div id="aksesuar" class="relative compulsory"></div>
+    @*<div class="box box-danger padding-2">
+            <div class="box-body">
+                <div class="row">
+                    <section class="content heightAuto nPadding-bottom">
+                        <div id="aksesuar" class="relative compulsory"></div>
+                    </section>
+                </div>
+            </div>
+        </div>*@
+</section>
+<div id="aksesuarPopoup" style="display:none !important">
+    @*@Html.Partial("../Popup/_aksesuarArama")*@
+</div>
+@section scripts
+{
+    <script src="@Url.Content("~/assets/plugins/iCheck/icheck.min.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genelayarlar.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.modelkart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.ilkMadde.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/search.js")"></script>
+ 
+    <script>
+
+        $(function () {
+
+            carikartlar.get.otomatikAksesuar.init();
+            carikartlar.search.init();
+        })
+
+    </script>
+}

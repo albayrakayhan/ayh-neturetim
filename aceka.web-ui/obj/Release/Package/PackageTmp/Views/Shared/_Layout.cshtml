@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title - Üretim</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link href="@Url.Content("~/assets/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/assets/plugins/datatables/dataTables.bootstrap.css")" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/plugins/iCheck/flat/blue.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/assets/plugins/select2/select2.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/assets/dist/css/AdminLTE.min.css")" />
+    
+    <link rel="stylesheet" href="@Url.Content("~/assets/dist/css/aceka.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/assets/dist/css/jquery-ui.css")" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/dist/css/skins/_all-skins.min.css")" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            @Html.Partial("_Header")
+        </header>
+        <aside class="main-sidebar">
+            @Html.Partial("_MainMenu")
+        </aside>
+        <div class="content-wrapper">
+           @RenderBody()
+        </div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Versiyon</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2018 <a href="#">ACEKA</a>.</strong> Tüm hakkı saklıdır.
+        </footer>
+    </div>
+
+    @Html.Partial("_ModalPopupTemplate")
+
+    <!-- jQuery 2.2.3 -->
+    <script src="@Url.Content("~/assets/plugins/jQuery/jquery-2.2.3.min.js")"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="@Url.Content("~/assets/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/assets/plugins/datatables/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/assets/plugins/datatables/dataTables.bootstrap.min.js")"></script>
+    <!-- SlimScroll -->
+
+    <script src="@Url.Content("~/assets/plugins/slimScroll/jquery.slimscroll.min.js")"></script>
+    <script src="@Url.Content("~/assets/plugins/jQueryUI/jquery-ui.min.js")"></script>
+    <script src="@Url.Content("~/assets/plugins/select2/select2.full.min.js")"></script>
+    <!-- FastClick -->
+    <script src="@Url.Content("~/assets/plugins/fastclick/fastclick.js")"></script>
+    <!-- AdminLTE App -->
+    <script src="@Url.Content("~/assets/dist/js/app.min.js")"></script>
+
+    <script src="@Url.Content("~/assets/plugins/chartjs/Chart.min.js")"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="@Url.Content("~/assets/dist/js/demo.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/jquery.validate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka_validation.js")"></script>
+
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

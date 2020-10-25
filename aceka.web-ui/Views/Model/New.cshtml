@@ -1,0 +1,333 @@
+﻿@{
+    ViewBag.Title = "Yeni Modelkart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="modelKart">
+    <!--Search elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="box box-warning">
+            <div class="box-body">
+                <div class="row">
+                    <!--items-->
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-12">
+                            <label for="stokkart_id">Stok Kart Id</label>
+                            <input type="text" class="form-control" name="stokkart_id" id="stokkart_id" placeholder="" disabled />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="stok_kodu">Stok Kodu*</label>
+                            <input type="text" class="form-control" name="stok_kodu" id="stok_kodu" value="" placeholder="Stok kodu girin..." tabindex="1" />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="stok_adi">Tanım (Kısa Ad)*</label>
+                            <input type="text" class="form-control" name="stok_adi" id="stok_adi" placeholder="Tanım (Kısa Ad) girin..." tabindex="3" />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="orjinal_renk_kodu">Orjinal Renk Kodu</label>
+                            <input type="text" class="form-control" name="orjinal_renk_kodu" id="orjinal_renk_kodu" placeholder="Orjinal renk kodu girin..." tabindex="5" />
+                        </div>
+                    </div>
+                    <!--items-->
+                    <!--items-->
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-12">
+                            <label>Stok Kart Tipleri*</label>
+                            <select class="form-control" name="stokkart_tipi_id" id="stokkart_tipi_id"></select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="anastokkart_id">Ana Stok Kodu</label>
+                            <input type="text" class="form-control" name="anastokkart_id" id="anastokkart_id" value="" tabindex="2">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="stok_adi_uzun">Tanım (Uzun Adı)*</label>
+                            <input type="text" class="form-control" name="stok_adi_uzun" id="stok_adi_uzun" value="" tabindex="4">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="orjinal_renk_adi">Orjinal Renk Adı</label>
+                            <input type="text" class="form-control" name="orjinal_renk_adi" id="orjinal_renk_adi" value="" tabindex="6">
+                        </div>
+                    </div>
+                    <!--items-->
+                    <!--items-->
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-12 no-padding">
+                            <div class="form-group col-sm-4 nMargin-bottom">
+                                <label>Statü</label>
+                                <select class="form-control" name="statu" id="statu" tabindex="7">
+                                    <option value="true">Aktif</option>
+                                    <option value="false">Pasif</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-4 nMargin-bottom">
+                                <label>KDV Alış</label>
+                                <select class="form-control" name="kdv_alis_id" id="kdv_alis_id" tabindex="8"></select>
+                            </div>
+                            <div class="form-group col-sm-4 nMargin-bottom">
+                                <label>KDV Satış</label>
+                                <select class="form-control" name="kdv_satis_id" id="kdv_satis_id" tabindex="9"></select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12 no-padding">
+                            <div class="form-group col-sm-4 nMargin-bottom">
+                                <label>Birim</label>
+                                <select class="form-control" name="birim_id_1" id="birim_id_1" tabindex="10"></select>
+                            </div>
+                            <div class="form-group col-sm-4 nMargin-bottom relative compulsory" id="selector">
+                                <label>Birim 2</label>
+                                <select class="form-control" name="birim_id_2" id="birim_id_2" tabindex="11"></select>
+                                <input class="brm iCheck-helper" type="checkbox" name="birim_id_2_zorunlu" id="birim_id_2_zorunlu" tabindex="12">
+                            </div>
+                            <div class="form-group col-sm-4 nMargin-bottom relative compulsory">
+                                <label>Birim 3</label>
+                                <select class="form-control" name="birim_id_3" id="birim_id_3" tabindex="13"></select>
+                                <input class="brm iCheck-helper" type="checkbox" name="birim_id_3_zorunlu" id="birim_id_3_zorunlu" tabindex="14">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12 no-padding">
+                            <div class="form-group col-sm-6">
+                                <label for="orjinal_stok_kodu">Orjinal Stok Kodu</label>
+                                <input type="text" class="form-control" name="orjinal_stok_kodu" id="orjinal_stok_kodu" value="" tabindex="15">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="orjinal_stok_adi">Orjinal Adı</label>
+                                <input type="text" class="form-control" name="orjinal_stok_adi" id="orjinal_stok_adi" value="" tabindex="16">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <button type="button" class="btn btn-info w50 searchBtn col-sm-6 fLeft modalTest" disabled>Onay</button>
+                            <button type="button" class="btn btn-warning w50 searchBtn col-sm-6 fright" id="onayGecmisi" disabled>Onay Geçmişi</button>
+                        </div>
+                    </div>
+                    <!--items-->
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--Search elements-->
+    <!--Tab elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs xsFont">
+                        <li class="active">
+                            <a href="#genelCon" data-toggle="tab">Genel</a>
+                        </li>
+                        <li>
+                            <a href="#varyantlarCon" data-toggle="tab">Varyantlar</a>
+                        </li>
+                        <li>
+                            <a href="#ilkMaddeKumasCon" data-toggle="tab">İlk Madde Kumaş</a>
+                        </li>
+                        <li>
+                            <a href="#İlkMaddeAksesuarCon" data-toggle="tab">İlk Madde Aksesuar</a>
+                        </li>
+                        <li>
+                            <a href="#İlkMaddeIplikCon" data-toggle="tab">İlk Madde İplik</a>
+                        </li>
+                        <li>
+                            <a href="#olculerCon" data-toggle="tab">Ölçüler</a>
+                        </li>
+                        <li>
+                            <a href="#talimatlarCon" data-toggle="tab">Talimatlar</a>
+                        </li>
+                        <li>
+                            <a href="#fiyatlarCon" data-toggle="tab">Fiyatlar</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--Genel-->
+                        @Html.Partial("_genelCon", null)
+                        <!--Genel-->
+                        <!--varyantlar-->
+                        @Html.Partial("_varyantlarCon")
+                        <!--varyantlar-->
+                        <!--İlk Madde Kumaş-->
+                        @Html.Partial("_ilkMaddeKumasCon")
+                        <!--İlk Madde Kumaş-->
+                        <!--İlk Madde Aksesuar-->
+                        @Html.Partial("_İlkMaddeAksesuarCon")
+                        <!--İlk Madde Aksesuar-->
+                        <!--İlk Madde Iplik-->
+                        @Html.Partial("_İlkMaddeIplikCon")
+                        <!--İlk Madde Iplik-->
+                        <!--Ölçüler-->
+                        @Html.Partial("_olculerCon")
+                        <!--Ölçüler-->
+                        <!--Talimatlar-->
+                        @Html.Partial("_talimatlarCon")
+                        <!--Talimatlar-->
+                        <!--Fiyatlar-->
+                        @Html.Partial("_fiyatlarCon")
+                        <!--Fiyatlar-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Tab elements-->
+    <!--Save Button-->
+    <section class="content heightAuto">
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <button type="submit" onclick="modelkart.post.send();" class="btn btn-primary col-sm-2 fright">Kaydet</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Save Button-->
+    <!--Popup-->
+    <div id="modalPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-aqua-active">
+                    <button type="button" class="close white" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Dosya Yükleme</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row poptitle">
+                        <div class="col-sm-4 form-group nMargin-bottom">Model Kodu:</div>
+                        <div class="col-sm-4 form-group nMargin-bottom">
+                            <input type="radio" name="modelKodu" id="modelKodu1" />
+                            <label for="modelKodu1">Puma Man Polo</label>
+                        </div>
+                        <div class="col-sm-4 form-group nMargin-bottom">
+                            <input type="radio" name="modelKodu" id="modelKodu2" />
+                            <label for="modelKodu2">Puma Man Polo</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label for="stokId">Stok Adı</label>
+                            <input type="text" class="form-control" name="stokAdi" id="stokAdi" placeholder="Give Awat Polo" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label for="stokId">Dosya Türü*</label>
+                            <select class="form-control" name="dosyaTuru">
+                                <option>Genel Resim</option>
+                                <option>Resimler</option>
+                                <option>Dökümanları (Pdf)</option>
+                                <option>Diğer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label for="stokId">Dosya Seç*</label>
+                            <div class="relative fileDiv">
+                                <span class="fileButton">Dosya Seç...</span>
+                                <input type="file" class="form-control" name="dosyaSec" id="dosyaSec">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label for="stokId">Açıklama</label>
+                            <input type="text" class="form-control" name="acıklama" id="acıklama" placeholder="Açıklama">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary">Kaydet</button>
+                    <button type="button" class="btn btn-danger">Vazgeç</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Popup-->
+</form>
+
+@section scripts
+{
+    <script src="@Url.Content("~/assets/plugins/iCheck/icheck.min.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.modelkart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/search.js")"></script>
+
+    <script>
+        $(function ()
+        {
+            parametre.init(
+                   {
+                       select: {
+                           stokkartTipControlId: 'stokkart_tipi_id',
+                           kdvControlId: 'kdv_alis_id',  // Kdv Alış select 'tinin içini dolduruyoruz.
+                           olcubirimControlId: 'birim_id_1',
+                           uretimyeriControlId: 'stokalan_id_9',
+                           gercekuretimyeriControlId: 'uretimyeri_id',
+                           calback: function () {
+                               $("#stokkart_tipi_id option").each(function (i, element) {
+                                   if ($(element).val() != 1) {
+                                       $(element).attr("disabled", true);
+                                   } else {
+                                       $(element).attr("selected", true);
+                                   }
+                               });
+                           }
+                       }
+                   });
+            parametre.olcubirimListesi('birim_id_2'); // birim2 select 'tinin içini dolduruyoruz.
+            parametre.olcubirimListesi('birim_id_3');
+            parametre.kdvListesi('kdv_satis_id'); // Kdv Satış select 'tinin içini dolduruyoruz.
+            //Genel Alt Sekmesi Rapor parametreleri
+            parametre.markaListeleri('stokalan_id_1', 0, 1);//Marka
+            parametre.uretimYeriListesi('stokalan_id_2', 0, 2); //Üretim Yeri
+            parametre.sponsorluListeleri('stokalan_id_3', 0, 3); //sponsor Bilgisi
+            parametre.cinsListeleri('stokalan_id_4', 0, 4);  //Cins  Select' tiin içini dolduruyoruz.
+            parametre.turListeleri('stokalan_id_5', 0, 5); //Tür
+            parametre.promoListeleri('stokalan_id_6', 0, 6);    //Promo
+            parametre.pelurListeleri('stokalan_id_7', 0, 7); //Pelür
+            parametre.modelTuruListeleri('stokalan_id_8', 0, 8);//Model Türü
+            parametre.keyListeleri('stokalan_id_9', 0, 9);    //Key
+            modelkart.search.init();
+            modelkart.get.init(0);
+            modelkart.get.genelUst(0,
+                {
+                    birim_id_1: 'birim_id_1',
+                    birim_id_2: 'birim_id_2',
+                    birim_id_3: 'birim_id_3',
+                    kdv_alis_id: 'kdv_alis_id',
+                    kdv_satis_id: 'kdv_satis_id',  //Kdv Alış select 'tinin seçili değerini getiriyoruz.
+                    birim_id_2_zorunlu: 'birim_id_2_zorunlu',
+                    birim_id_3_zorunlu: 'birim_id_3_zorunlu',
+                    statu: 'statu',
+                    anastokkart_id: 'anastokkart_id',
+                }
+                );
+            modelkart.get.genelAlt('0'); // @Model ile stokkart_id yi gönderiyoruz.
+            modelkart.get.genelAltParametreler('0',
+                {
+                    stokalan_id_1: 'stokalan_id_1',
+                    stokalan_id_3: 'stokalan_id_3',
+                    stokalan_id_2: 'stokalan_id_2',
+                    stokalan_id_4: 'stokalan_id_4',
+                    stokalan_id_8: 'stokalan_id_8',
+                    stokalan_id_5: 'stokalan_id_5',
+                    stokalan_id_6: 'stokalan_id_6',
+                    stokalan_id_7: 'stokalan_id_7',
+                    stokalan_id_9: 'stokalan_id_9',
+                    uretimyeri_id: 'uretimyeri_id',
+                    satici_carikart_id: 'satici_carikart_id'
+                }
+                );
+            modelkart.get.fileUpload(0);
+            customValidation.modelKart();
+        });
+    </script>
+
+    <script>
+        $('.iCheck-helper').iCheck({
+            checkboxClass: 'icheckbox_flat-blue',
+            radioClass: 'iradio_flat-blue'
+        });
+    </script>    
+}

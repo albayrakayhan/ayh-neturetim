@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Çalisma Takvimi";
+}
+<section class="content heightAuto nPadding-bottom nPadding-top">
+    <div class="box box-danger padding-2">
+        <div class="box-body">
+            <div class="row">
+                <section class="content heightAuto nPadding-bottom">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="form-group col-sm-11">
+                                    <label>Sene</label>
+                                    <select type="text" class="form-control" name="sene" id="sene"></select>
+                                </div>
+                                <div class="form-group col-sm-1">
+                                    <label> </label>
+                                    <button type="button" id="getir" class="btn btn-info pull-right takvimBtn">Listele</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="box padding-2">
+    <div class="box-body">
+        <div class="row">
+            <section class="content heightAuto nPadding-bottom">
+                <div class="box-body">
+                    <div class="row">
+                        <table id="takvimTable" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Sene</th>
+                                    <th>Tarih</th>
+                                    <th>Gün</th>
+                                    <th>Hafta</th>
+                                    
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+<script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+<script type="text/javascript" src="@Url.Content("/assets/dist/js/aceka.genelayarlar.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+<script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+
+
+
+    <script>
+
+        genelayarlar.get.init();
+        parametre.takvimseneler('sene');
+
+    </script>
+
+
+
+}
+

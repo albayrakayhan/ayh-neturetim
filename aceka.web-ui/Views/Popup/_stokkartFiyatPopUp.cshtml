@@ -1,0 +1,45 @@
+﻿<form id="fiyatpopupForm">
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <input type="number" class="form-control" name="fiyat" id="fiyat" placeholder="Fiyat Giriniz">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="fiyattipi">Fiyat Tipleri*</label>
+            <select class="form-control" name="fiyattipi" id="fiyattipi"></select>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="pb">Para Birimi </label>
+            <select class="form-control" name="pb" id="pb"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="fiyattipi">Tarih  </label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" id="tarih"  name="tarih">
+            </div>
+        </div>
+    </div>
+    <input id="hfId" name="hfId" value="" type="hidden" />
+    <script>
+        $(function () {
+            parametre.init(
+                       {
+                           select: {
+                               fiyattipiControlId: 'fiyattipi',
+                               parabirimControlId: 'pb',
+                           }
+                       });
+            $("#tarih").datepicker({
+                dayNames: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
+                dayNamesMin: ["Pts", "Sal", "Çar", "Per", "Cum", "Cts", "Paz"],
+                monthNames: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
+            });
+        })
+    </script>
+</form>

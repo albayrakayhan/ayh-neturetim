@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Gtip Tanımlamaları";
+}
+
+<br />
+<section class="content heightAuto nPadding-bottom nPadding-top">
+    <div class="box box-danger padding-2">
+        <div class="box-body">
+            <div class="row">
+                <div class="text-center">
+                    <strong> <label>GTIP Tanımlamaları</label></strong>
+
+                    <div class="icons pull-right">
+                        @*<button type="button" class="btn btn-default btn-sm" title="Yazdır"><i class="glyphicon glyphicon-th-list"></i></button>
+                            <button type="button" class="btn btn-default btn-sm" title="Dışa Aktar"><i class="glyphicon glyphicon-refresh"></i></button>
+                            <button type="button" class="btn btn-default btn-sm" title="E-posta Gönder"><i class="glyphicon glyphicon-cloud-upload"></i></button>*@
+                    </div>
+                </div>
+                <section class="content heightAuto nPadding-bottom">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <div class="row">
+
+                                <div class="form-group col-sm-3">
+                                    <label for="carikart_id">Mamul Türü(*)</label>
+                                    <select class="form-control" name="stokKartTipi" id="stokKartTipi"></select>
+
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label for="ozel_kod">Model Tipi</label>
+                                    <select class="form-control" name="stokalan_id_5" id="stokalan_id_5"></select>
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>Kumaş Tipi</label>
+                                    <select class="form-control" name="stokalan_id_2" id="stokalan_id_2"></select>
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label for="orjSNo">GTip İçeriği</label>
+                                    <select class="form-control" name="hepsi" id="gtipIcerik">
+                                        <option>Seçiniz</option>
+                                        <option value="0">Hepsi</option>
+                                        <option value="1">Boş Olanlar</option>
+                                        <option value="2">Dolu Olanlar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="orjSNo">G.T.I.P Belge Bilgisi(*)</label>
+                                    <select class="form-control" name="gtipBelge" id="gtipBelge"></select>
+                                </div>
+                                <div class="col-md-2">
+                                    <br />
+                                    <input class="iCheck-helper" type="checkbox" name="sadeceKayitYukle" id="sadeceKayitYukle" value="true" /><label for="sadeceKayitYukle" style="font-weight: 100;">Sadece Kullanılan Kayıtları Yükle</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <br />
+                                    <input class="iCheck-helper" type="checkbox" name="aciklamaParametreden" id="aciklamaParametreden" value="true" /> <label for="aciklamaParametreden" style="font-weight:100;">Açıklamaları Parametrelerden Yükle</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <br />
+                                    <button id="GetirBelge" class="btn btn-info" onclick="genelayarlar.get.gtiparama();">Getir</button>
+                                </div>
+                            </div>
+
+                            <!-- #region KendoUI Grid-->
+                            <div style="margin-top:3%;" id="example">
+                                <div id="grid"></div>
+                            </div>
+                            <!-- #endregion -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/dist/js/aceka.genel.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/assets/dist/js/aceka.genelayarlar.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/dist/js/search.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+
+    <script>
+        genelayarlar.get.init();
+        $(function () {
+            genelayarlar.get.GtiptanimlarGet.init();
+        })
+
+        $(function () {
+
+            //Selectlerin içlerini dolduruyoruz.
+            parametre.stokkartTipListesi('stokKartTipi');           //Mamül türleri
+            parametre.turListeleri('stokalan_id_5', 0, 5);          //Model türleri
+            parametre.parametreListeler('stokalan_id_2', 20, 2);    //Kumaş türleri
+            parametre.gtipBelgeList('gtipBelge');                   //Belge türleri
+        })
+    </script>
+}
+
+
+
+
+

@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EndofLinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MarsanMail">
+          <Key>
+            <PropertyRef Name="sipid" />
+          </Key>
+          <Property Name="sipid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiparisNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="TerminTarihi" Type="datetime" />
+          <Property Name="Firma" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiparisTarihi" Type="datetime" />
+          <Property Name="FirmaSiparisNo" Type="nvarchar" MaxLength="200" />
+          <Property Name="Renk" Type="nvarchar" MaxLength="200" />
+          <Property Name="StokKodu" Type="nvarchar" MaxLength="200" />
+          <Property Name="SiparisMiktari" Type="float" />
+          <Property Name="Durum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Talimat" Type="nvarchar" MaxLength="150" />
+          <Property Name="ReceteNo" Type="int" />
+          <Property Name="KartNo" Type="int" />
+          <Property Name="IsEmriMiktari" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="DepoMiktari" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="TopSayisi" Type="int" />
+          <Property Name="UretilmemisMiktar" Type="nvarchar" MaxLength="150" />
+          <Property Name="SonHaraketTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MarsanMailHesaplari">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="EPosta" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Aktif" Type="bit" Nullable="false" />
+          <Property Name="OrmeAktif" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EndofLin.dbo.MarsanMailOrme' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MarsanMailOrme">
+          <Key>
+            <PropertyRef Name="sipid" />
+          </Key>
+          <Property Name="sipid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiparisNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="TerminTarihi" Type="datetime" />
+          <Property Name="OrmeTerminTarihi" Type="datetime" />
+          <Property Name="Firma" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirmaSiparisNo" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsEmriMiktari" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="IsEmriBakiye" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="UretimMiktari" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="UretimBakiye" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Cinsi" Type="nvarchar" MaxLength="250" />
+          <Property Name="SiparisMiktari" Type="float" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="10" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="300" />
+          <Property Name="Pus" Type="nchar" MaxLength="10" />
+          <Property Name="Fayn" Type="nchar" MaxLength="10" />
+          <Property Name="TüpMay" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityContainer Name="EndofLinModelStoreContainer">
+          <EntitySet Name="MarsanMail" EntityType="Self.MarsanMail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarsanMailHesaplari" EntityType="Self.MarsanMailHesaplari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarsanMailOrme" EntityType="Self.MarsanMailOrme" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MarsanMailOrme].[sipid] AS [sipid], 
+    [MarsanMailOrme].[SiparisNo] AS [SiparisNo], 
+    [MarsanMailOrme].[TerminTarihi] AS [TerminTarihi], 
+    [MarsanMailOrme].[OrmeTerminTarihi] AS [OrmeTerminTarihi], 
+    [MarsanMailOrme].[Firma] AS [Firma], 
+    [MarsanMailOrme].[FirmaSiparisNo] AS [FirmaSiparisNo], 
+    [MarsanMailOrme].[IsEmriMiktari] AS [IsEmriMiktari], 
+    [MarsanMailOrme].[IsEmriBakiye] AS [IsEmriBakiye], 
+    [MarsanMailOrme].[UretimMiktari] AS [UretimMiktari], 
+    [MarsanMailOrme].[UretimBakiye] AS [UretimBakiye], 
+    [MarsanMailOrme].[Cinsi] AS [Cinsi], 
+    [MarsanMailOrme].[SiparisMiktari] AS [SiparisMiktari], 
+    [MarsanMailOrme].[Birim] AS [Birim], 
+    [MarsanMailOrme].[Aciklama] AS [Aciklama], 
+    [MarsanMailOrme].[Pus] AS [Pus], 
+    [MarsanMailOrme].[Fayn] AS [Fayn], 
+    [MarsanMailOrme].[TüpMay] AS [TüpMay]
+    FROM [dbo].[MarsanMailOrme] AS [MarsanMailOrme]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EndofLinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MarsanMail">
+          <Key>
+            <PropertyRef Name="sipid" />
+          </Key>
+          <Property Name="sipid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TerminTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Firma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="FirmaSiparisNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Renk" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="StokKodu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisMiktari" Type="Double" />
+          <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Talimat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ReceteNo" Type="Int32" />
+          <Property Name="KartNo" Type="Int32" />
+          <Property Name="IsEmriMiktari" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="DepoMiktari" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="TopSayisi" Type="Int32" />
+          <Property Name="UretilmemisMiktar" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SonHaraketTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MarsanMailHesaplari">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EPosta" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Aktif" Type="Boolean" Nullable="false" />
+          <Property Name="OrmeAktif" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EndofLinEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MarsanMail" EntityType="Self.MarsanMail" />
+          <EntitySet Name="MarsanMailHesaplari" EntityType="Self.MarsanMailHesaplari" />
+          <EntitySet Name="MarsanMailOrme" EntityType="EndofLinModel.MarsanMailOrme" />
+        </EntityContainer>
+        <EntityType Name="MarsanMailOrme">
+          <Key>
+            <PropertyRef Name="sipid" />
+          </Key>
+          <Property Name="sipid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TerminTarihi" Type="DateTime" Precision="3" />
+          <Property Name="OrmeTerminTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Firma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirmaSiparisNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsEmriMiktari" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="IsEmriBakiye" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="UretimMiktari" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="UretimBakiye" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Cinsi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisMiktari" Type="Double" />
+          <Property Name="Birim" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Pus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Fayn" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TüpMay" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EndofLinModelStoreContainer" CdmEntityContainer="EndofLinEntities">
+          <EntitySetMapping Name="MarsanMail">
+            <EntityTypeMapping TypeName="EndofLinModel.MarsanMail">
+              <MappingFragment StoreEntitySet="MarsanMail">
+                <ScalarProperty Name="sipid" ColumnName="sipid" />
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+                <ScalarProperty Name="TerminTarihi" ColumnName="TerminTarihi" />
+                <ScalarProperty Name="Firma" ColumnName="Firma" />
+                <ScalarProperty Name="SiparisTarihi" ColumnName="SiparisTarihi" />
+                <ScalarProperty Name="FirmaSiparisNo" ColumnName="FirmaSiparisNo" />
+                <ScalarProperty Name="Renk" ColumnName="Renk" />
+                <ScalarProperty Name="StokKodu" ColumnName="StokKodu" />
+                <ScalarProperty Name="SiparisMiktari" ColumnName="SiparisMiktari" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="Talimat" ColumnName="Talimat" />
+                <ScalarProperty Name="ReceteNo" ColumnName="ReceteNo" />
+                <ScalarProperty Name="KartNo" ColumnName="KartNo" />
+                <ScalarProperty Name="IsEmriMiktari" ColumnName="IsEmriMiktari" />
+                <ScalarProperty Name="DepoMiktari" ColumnName="DepoMiktari" />
+                <ScalarProperty Name="TopSayisi" ColumnName="TopSayisi" />
+                <ScalarProperty Name="UretilmemisMiktar" ColumnName="UretilmemisMiktar" />
+                <ScalarProperty Name="SonHaraketTarihi" ColumnName="SonHaraketTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarsanMailHesaplari">
+            <EntityTypeMapping TypeName="EndofLinModel.MarsanMailHesaplari">
+              <MappingFragment StoreEntitySet="MarsanMailHesaplari">
+                <ScalarProperty Name="OrmeAktif" ColumnName="OrmeAktif" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarsanMailOrme">
+            <EntityTypeMapping TypeName="EndofLinModel.MarsanMailOrme">
+              <MappingFragment StoreEntitySet="MarsanMailOrme">
+                <ScalarProperty Name="TüpMay" ColumnName="TüpMay" />
+                <ScalarProperty Name="Fayn" ColumnName="Fayn" />
+                <ScalarProperty Name="Pus" ColumnName="Pus" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="SiparisMiktari" ColumnName="SiparisMiktari" />
+                <ScalarProperty Name="Cinsi" ColumnName="Cinsi" />
+                <ScalarProperty Name="UretimBakiye" ColumnName="UretimBakiye" />
+                <ScalarProperty Name="UretimMiktari" ColumnName="UretimMiktari" />
+                <ScalarProperty Name="IsEmriBakiye" ColumnName="IsEmriBakiye" />
+                <ScalarProperty Name="IsEmriMiktari" ColumnName="IsEmriMiktari" />
+                <ScalarProperty Name="FirmaSiparisNo" ColumnName="FirmaSiparisNo" />
+                <ScalarProperty Name="Firma" ColumnName="Firma" />
+                <ScalarProperty Name="OrmeTerminTarihi" ColumnName="OrmeTerminTarihi" />
+                <ScalarProperty Name="TerminTarihi" ColumnName="TerminTarihi" />
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+                <ScalarProperty Name="sipid" ColumnName="sipid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

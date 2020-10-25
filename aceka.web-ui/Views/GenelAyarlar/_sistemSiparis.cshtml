@@ -1,0 +1,66 @@
+﻿<div class="tab-pane" id="sistemSiparis">
+    <form id="sistemSiparisForm">
+        <!--Items Elements-->
+        <section class="content heightAuto nPadding-bottom relative compulsory">
+            <div class="box box-warning">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="carikart_id">Zorluk Grubu</label>
+                            <select class="form-control" name="stokKartTipi" id="stokKartTipi" tabindex="1"></select>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label>Kesim Firesi</label>
+                            <input type="number" class="form-control" name="kesim_firesi" id="kesim_firesi" max="32766" tabindex="2" />
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label>Kesim Fazlası</label>
+                            <input type="number" class="form-control" name="kesim_fazlasi" id="kesim_fazlasi" max="32766" tabindex="3" />
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label>Müşteri Fazlası</label>
+                            <input type="number" class="form-control" name="musteri_fazlasi" id="musteri_fazlasi" max="32766" tabindex="4" />
+                        </div>
+                        <div class="form-group col-sm-2 relative compulsory">
+                            <label>Kesim Fazla Oranları Beden Bazındadır</label>
+                            <input class="brm iCheck-helper" type="checkbox" name="kesim_fazlasi_oranlari" id="kesim_fazlasi_oranlari" tabindex="5">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <section class="content heightAuto nPadding-bottom  col-sm-12">
+                            <div id="sistemSiparisPlanlama" class="relative compulsory"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Items elements-->
+        <!--Save Button-->
+        <section class="content heightAuto">
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <button type="submit" class="btn btn-primary col-sm-2 fright">Kaydet</button>
+
+                </div>
+            </div>
+        </section>
+        <!--Save Button-->
+    </form>
+</div>
+@section scripts
+{
+    <script src="@Url.Content("~/assets/plugins/iCheck/icheck.min.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genelayarlar.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/search.js")"></script>
+
+    <script>
+        $('.iCheck-helper').iCheck({
+            checkboxClass: 'icheckbox_flat-blue',
+            radioClass:    'iradio_flat-blue'
+        });
+        //genel.iCheck($("#kesim_fazlasi_oranlari"));
+    </script>
+}

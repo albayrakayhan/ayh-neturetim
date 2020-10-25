@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EndofLinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MarsanMail">
+    <Key>
+      <PropertyRef Name="sipid" />
+    </Key>
+    <Property Name="sipid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SiparisNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TerminTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Firma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SiparisTarihi" Type="DateTime" Precision="3" />
+    <Property Name="FirmaSiparisNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Renk" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="StokKodu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SiparisMiktari" Type="Double" />
+    <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Talimat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ReceteNo" Type="Int32" />
+    <Property Name="KartNo" Type="Int32" />
+    <Property Name="IsEmriMiktari" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="DepoMiktari" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="TopSayisi" Type="Int32" />
+    <Property Name="UretilmemisMiktar" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SonHaraketTarihi" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="MarsanMailHesaplari">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EPosta" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Aktif" Type="Boolean" Nullable="false" />
+    <Property Name="OrmeAktif" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="EndofLinEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MarsanMail" EntityType="Self.MarsanMail" />
+    <EntitySet Name="MarsanMailHesaplari" EntityType="Self.MarsanMailHesaplari" />
+    <EntitySet Name="MarsanMailOrme" EntityType="EndofLinModel.MarsanMailOrme" />
+  </EntityContainer>
+  <EntityType Name="MarsanMailOrme">
+    <Key>
+      <PropertyRef Name="sipid" />
+    </Key>
+    <Property Name="sipid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SiparisNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TerminTarihi" Type="DateTime" Precision="3" />
+    <Property Name="OrmeTerminTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Firma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirmaSiparisNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsEmriMiktari" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="IsEmriBakiye" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="UretimMiktari" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="UretimBakiye" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="Cinsi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SiparisMiktari" Type="Double" />
+    <Property Name="Birim" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Pus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Fayn" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TüpMay" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+  </EntityType>
+</Schema>

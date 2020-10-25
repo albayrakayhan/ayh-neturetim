@@ -1,0 +1,52 @@
+﻿Modelkart/detail ve New
+
+modelkart.get.init incele (Default olarak Ekle butonlara evet ataması yapıyoruz)
+
+ //ICheck seçilme ve seçilmeme durumu
+ $('input[name="eklerCheckBox"]').on('ifChecked', function (event) {
+
+     var ek_id = event.target.value;
+     var stokkart_id = event.target.attributes["data-stokkart_id"].nodeValue;
+     var filename = event.target.attributes["data-filename"].nodeValue;
+
+     eklerCheckedValues.push({ ek_id: ek_id, stokkart_id: stokkart_id, filename: filename });
+
+     //alert(ek_id + ' ' + stokkart_id + ' ' + filename);
+ });
+
+$('input[name="eklerCheckBox"]').on('ifUnchecked', function (event) {
+
+    var ek_id = event.target.value;
+    var tmpArray = [];
+
+    for (var item, i = 0; item = eklerCheckedValues[i++];) {
+        if (item.ek_id != ek_id) {
+            tmpArray.push(item);
+        }
+    }
+
+    eklerCheckedValues = tmpArray;
+});
+
+//Autocomplate örnek
+
+        $("#varsayilanTedarikci").autocomplete({
+            //source: carikart.autocomplate.varsayilanSatici(),
+            source: function (request, response) {
+
+                var data = carikart.autocomplate.varsayilanSatici();
+                response($.map(data, function (item) {
+                    return { value: item.value, id: item.id };
+                }));
+            },
+            minLength: 2,
+            select: function (event, ui) {
+			//Bir arama sonrası data-id ye stokkart ıd set ediliyor
+                $("#varsayilanTedarikci").attr('data-id', ui.item.id); // save selected id to hidden input
+            }
+        });
+
+
+
+		Aramalara encodeURI eklemesi yapılacak. Dikkat jquery tarafında veri doğru gidiyor.
+		sql parametrelerine gelince bozuluyor.

@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Sipariş Arama Ekranı";
+
+}
+<!--Search elements-->
+<section class="content heightAuto nPadding-bottom">
+    <div class="box box-primary">
+        <div class="box-body">
+            <div class="row">
+
+                <div class="form-group col-sm-2">
+                    <label for="stokKodu">Sipariş No*</label>
+                    <input type="text" class="form-control" id="siparis_no" name="siparis_no" data-id="" placeholder="Sipariş No">
+                   
+                </div>
+                <div class="form-group col-sm-2">
+                    <label for="orjAdi">Model No*</label>
+                    <input type="text" class="form-control" id="stok_kodu" name="stok_kodu"  value=""  placeholder="Model No">
+                </div>
+                <div class="form-group col-sm-2">
+                    <label for="modelAdi">Model Adı*</label>
+                    <input type="text" class="form-control" id="stok_adi" name="stok_adi" placeholder="Model Adı">
+                </div>
+               
+                <div class="form-group col-sm-2">
+                    <label for="muscarikartid">Müşteri</label>
+                    <select class="form-control" name="carikart_id" id="carikart_id"></select>
+                </div>
+                <div class="form-group col-sm-2">
+                    <label>Sezonlar</label>
+                    <select class="form-control" name="sezon_id" id="sezon_id"></select>
+                </div>
+                @*<div class="form-group col-sm-11">
+                    <label for="renkAdi">Renk Adi*</label>
+                    <input type="text" class="form-control" name="renk_adi" id="renk_adi" placeholder="Giriniz">
+                </div>*@
+                <div class="form-group col-sm-1">
+                    <button type="button" class="btn btn-info pull-right searchBtn aramaSiparisBtn">Ara</button>
+                </div>
+                <span class="col-sm-12 pull-right xsFont red">Lütfen (*) Alanları Doldurunuz!</span>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!--Search elements-->
+<!--table elements-->
+<section class="content heightAuto nPadding-bottom nPadding-top">
+    <div class="box box-danger padding-2">
+        <div class="box-body">
+            <div class="row">
+                <div class="icons pull-right">
+                    <button type="button" class="btn btn-default btn-sm" title="Yazdır"><i class="fa fa-print"></i></button>
+                    <button type="button" class="btn btn-default btn-sm" title="Dışa Aktar"><i class="fa fa-exchange"></i></button>
+                    <button type="button" class="btn btn-default btn-sm" title="E-posta Gönder"><i class="fa fa-envelope-o"></i></button>
+                </div>
+                <table id="siparisKart" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="widthTable allCheckBox">Hepsini Seç</th>
+                            <th>Sipariş No</th>
+                            <th>Müşteri</th>
+                            <th>Model No</th>
+                            <th>Model Adı</th>
+                            <th>Sipariş Tarihi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!--table elements-->
+<button class="newBtn btn btn-danger" onclick="location='@Url.Action("new","siparis")'"><i class="fa fa-plus"></i></button>
+
+@section scripts
+{
+<script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.siparis.autocomplate.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.siparis.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.modelkart.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.stokkart.autocomplate.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.stokkart.js")"></script>
+<script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("/assets/dist/js/search.js")"></script>
+
+    <script>
+        $(function () {
+            parametre.init(
+                   {
+                       select: {
+                           sezonControlId: 'sezon_id'  //sezon select' ini dolduruyoruz.
+                       }
+                   });
+        });
+
+       
+        carikartlar.get.musteriListesi('carikart_id');
+        siparis.search.init();
+       
+        //stokkartilkMadde.get.sezonlar(0);
+        //$('#sezon_id').sezonlar();  //sezonlar select ini dolduruyoruz. İkinci yöntem Prototype ile. aceka.parametre den bakabilirsiniz.
+        
+    </script>
+
+}

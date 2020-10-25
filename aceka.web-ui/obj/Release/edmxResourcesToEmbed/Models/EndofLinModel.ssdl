@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EndofLinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MarsanMail">
+    <Key>
+      <PropertyRef Name="sipid" />
+    </Key>
+    <Property Name="sipid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiparisNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="TerminTarihi" Type="datetime" />
+    <Property Name="Firma" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiparisTarihi" Type="datetime" />
+    <Property Name="FirmaSiparisNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Renk" Type="nvarchar" MaxLength="200" />
+    <Property Name="StokKodu" Type="nvarchar" MaxLength="200" />
+    <Property Name="SiparisMiktari" Type="float" />
+    <Property Name="Durum" Type="nvarchar" MaxLength="50" />
+    <Property Name="Talimat" Type="nvarchar" MaxLength="150" />
+    <Property Name="ReceteNo" Type="int" />
+    <Property Name="KartNo" Type="int" />
+    <Property Name="IsEmriMiktari" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="DepoMiktari" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="TopSayisi" Type="int" />
+    <Property Name="UretilmemisMiktar" Type="nvarchar" MaxLength="150" />
+    <Property Name="SonHaraketTarihi" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MarsanMailHesaplari">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdSoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="EPosta" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Aktif" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="EndofLinModelStoreContainer">
+    <EntitySet Name="MarsanMail" EntityType="Self.MarsanMail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarsanMailHesaplari" EntityType="Self.MarsanMailHesaplari" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

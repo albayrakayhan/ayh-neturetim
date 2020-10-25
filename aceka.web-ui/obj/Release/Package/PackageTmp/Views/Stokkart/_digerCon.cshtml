@@ -1,0 +1,103 @@
+﻿<div class="tab-pane" id="digerCon">
+    <div class="row">
+        <!--Sezonlar item-->
+        <div class="col-sm-5">
+            <div class="form-group col-sm-12 border-bottom nMargin-bottom">
+                <div class="col-sm-8">
+                    <h4 class="inline">Sezonlar</h4>
+                </div>
+                <div class="col-sm-4">                    
+                    <button id="sezonKaydet" type="button" class="btn btn-default btn-sm fright m-right-10" onclick="stokkartilkMadde.post.sezonlar();" title="Kaydet"><i class="fa fa-save"> Kaydet</i></button>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 no-padding sezonArray">
+                <table id="sezonTable" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sezon</th>
+                            <th>Sezon Adı</th>
+                            <th>Markalar</th>
+                            <th>Onay</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!--Sezonlar item-->
+        <!--Birim Dönüştürücü item-->
+        <div class="form-group col-sm-2">
+            <div class="form-group col-sm-12 border-bottom nMargin-bottom">
+                <h4 class="inline">Birim Dönüştürücü</h4>
+            </div>
+            <div class="col-sm-12 form-group no-padding">
+                <div class="col-sm-4"><label for="birim1x">Birim 1</label></div>
+                <div class="col-sm-8"><input type="text" disabled class="form-control" id="birim1x" name="birim1x" placeholder=""></div>
+            </div>
+            <div class="col-sm-12 form-group no-padding">
+                <div class="col-sm-4"><label for="birim2x">Birim 2</label></div>
+                <div class="col-sm-8"><input type="text" disabled class="form-control" id="birim2x" name="birim2x" placeholder=""></div>
+            </div>
+            <div class="col-sm-12 form-group no-padding">
+                <div class="col-sm-4"><label for="birim3x">Birim 3</label></div>
+                <div class="col-sm-8"><input type="text" disabled class="form-control" id="birim3x" name="birim3x" placeholder=""></div>
+            </div>
+            <div class="col-sm-12 form-group no-padding">
+                <div class="col-sm-4"><label for="metre">Metre gr</label></div>
+                <div class="col-sm-8"><input type="number" class="form-control birim" id="M2_gram" name="M2_gram" placeholder=""></div>
+            </div>
+            <div class="col-sm-12 form-group no-padding">
+                <div class="col-sm-4"><label for="eni">Eni</label></div>
+                <div class="col-sm-8"><input type="number" class="form-control birim" id="eni" name="eni" placeholder=""></div>
+            </div>
+            <div class="col-sm-12 form-group no-padding">
+                <div class="col-sm-4"><label for="fyne">Fyne</label></div>
+                <div class="col-sm-8"><input type="number" class="form-control" id="fyne" name="fyne" placeholder=""></div>
+            </div>
+            <div class="col-sm-12 form-group no-padding">
+                <div class="col-sm-4"><label for="fireOrani">Fire Oranı</label></div>
+                <div class="col-sm-8"><input type="number" class="form-control" id="fire_orani" name="fire_orani" placeholder=""></div>
+            </div>
+           
+        </div>
+        <!--Birim Dönüştürücü item-->
+        <!--Benzer Kartlar item-->
+        <div class="form-group col-sm-5">
+            <div class="form-group col-sm-12 border-bottom nMargin-bottom">
+                <h4 class="inline">Benzer Kartlar</h4>
+                <button type="button" class="btn btn-default btn-sm fright delete benzerstkDeleteBtn" id="Test"><i class="fa fa-remove"></i></button>
+                <button type="button" class="btn btn-default btn-sm fright m-right-10 benzerstkBtn" title="Ekle"><i class="fa fa-plus"></i></button>
+            </div>
+            <div class="form-group col-sm-12 no-padding benzerKart">
+                <table id="benzerKartlar" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Stok Kodu</th>
+                            <th>Tanım</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!--Benzer Kartlar  item-->
+    </div>
+</div>
+
+@*<script>
+    $('.birim').click(function () {
+ hesapla();
+});
+$('.biri').keyup(function() {
+ hesapla();
+});
+//$('.secenek').change(function() {
+// hesapla();
+//});
+function hesapla() {
+    var a = $('input[name="M2_gram"]').val();
+    var b = $('input[name="eni"]').val();
+
+    $('input[name="birim1x"]').val(a * b );
+}
+</script>*@
+       

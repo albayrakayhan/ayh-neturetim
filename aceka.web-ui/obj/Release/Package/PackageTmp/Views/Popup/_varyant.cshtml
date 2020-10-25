@@ -1,0 +1,127 @@
+﻿<form id="varyantFrom">
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label for="sku_no">Sku No</label>
+            <input type="text" class="form-control" name="sku_no" id="sku_no" maxlength="20" placeholder="Sku No Giriniz">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <div class="form-group col-sm-12 no-padding">
+                <div class="groupListTop w100">
+                    <h2 class="border-bottom">Beden Grupları</h2>
+                    <ul class="groupList bedenGruplari">
+                        @*<li><label for="A">A</label><input type="checkbox" class="form-control" name="A" id="A" /></li>*@
+
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 scrollCont groupDetayList">
+                @*<div class="groupListTop w100">
+                    <h2 class="border-bottom">A</h2>
+                    <ul class="groupList">
+                        <li>
+                            <label for="4XL">4XL</label>
+                            <input type="checkbox" class="form-control" name="4XL" id="4XL">
+                        </li>
+                        <li>
+                            <label for="5XL">5XL</label>
+                            <input type="checkbox" class="form-control" name="5XL" id="5XL">
+                        </li>
+                        <li>
+                            <label for="6XL">6XL</label>
+                            <input type="checkbox" class="form-control" name="6XL" id="6XL">
+                        </li>
+                        <li>
+                            <label for="L">L</label>
+                            <input type="checkbox" class="form-control" name="L" id="L">
+                        </li>
+                        <li><label for="L/S">L/S</label><input type="checkbox" class="form-control" name="L/S" id="L/S"></li>
+                    </ul>
+                </div>
+                <div class="groupListTop w100">
+                    <h2 class="border-bottom">B</h2>
+                    <ul class="groupList">
+                        <li>
+                            <label for="4XL">4XL</label>
+                            <input type="checkbox" class="form-control" name="4XL" id="4XL">
+                        </li>
+                        <li>
+                            <label for="5XL">5XL</label>
+                            <input type="checkbox" class="form-control" name="5XL" id="5XL">
+                        </li>
+                        <li>
+                            <label for="6XL">6XL</label>
+                            <input type="checkbox" class="form-control" name="6XL" id="6XL">
+                        </li>
+                        <li>
+                            <label for="L">L</label>
+                            <input type="checkbox" class="form-control" name="L" id="L">
+                        </li>
+                        <li>
+                            <label for="L/S">L/S</label>
+                            <input type="checkbox" class="form-control" name="L/S" id="L/S">
+                        </li>
+                    </ul>
+                </div>
+                <div class="groupListTop w100">
+                    <h2 class="border-bottom">C</h2>
+                    <ul class="groupList">
+                        <li>
+                            <label for="4XL">4XL</label>
+                            <input type="checkbox" class="form-control" name="4XL" id="4XL">
+                        </li>
+                        <li>
+                            <label for="5XL">5XL</label>
+                            <input type="checkbox" class="form-control" name="5XL" id="5XL">
+                        </li>
+                        <li>
+                            <label for="6XL">6XL</label>
+                            <input type="checkbox" class="form-control" name="6XL" id="6XL">
+                        </li>
+                        <li>
+                            <label for="L">L</label>
+                            <input type="checkbox" class="form-control" name="L" id="L">
+                        </li>
+                        <li>
+                            <label for="L/S">L/S</label>
+                            <input type="checkbox" class="form-control" name="L/S" id="L/S">
+                        </li>
+                        <li>
+                            <label for="4XL">4XL</label>
+                            <input type="checkbox" class="form-control" name="4XL" id="4XL">
+                        </li>
+                        <li>
+                            <label for="5XL">5XL</label>
+                            <input type="checkbox" class="form-control" name="5XL" id="5XL">
+                        </li>
+                        <li>
+                            <label for="6XL">6XL</label>
+                            <input type="checkbox" class="form-control" name="6XL" id="6XL">
+                        </li>
+                        <li>
+                            <label for="L">L</label>
+                            <input type="checkbox" class="form-control" name="L" id="L">
+                        </li>
+                        <li>
+                            <label for="L/S">L/S</label>
+                            <input type="checkbox" class="form-control" name="L/S" id="L/S">
+                        </li>
+                    </ul>
+                </div>*@
+            </div>
+        </div>
+    </div>
+    <input id="hfId" name="hfId" value="" type="hidden" />
+    <script>
+        parametre.init(
+                       {
+                           select: {
+                               bedenGrubuControlId: 'bedenGrubu',
+                               bedenDetayControlId: 'beden_id'
+                           }
+                       });
+
+    </script>
+</form>

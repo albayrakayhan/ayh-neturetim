@@ -1,0 +1,42 @@
+﻿ 
+@{
+    Layout = null;
+}
+
+<!-- jQuery 2.2.3 -->
+<script src="@Url.Content("~/assets/plugins/jQuery/jquery-2.2.3.min.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+<script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+
+
+
+<div style="padding:5px">
+    <label id="parametre_1" data-parametre="1"></label><br />
+    <select id="stokalan_id_1" data-parametre="1">
+        @*<option>Seçin...</option>*@
+    </select>
+</div>
+
+<div style="padding:5px">
+    <label id="parametre_2" data-parametre="2"></label><br />
+    <select id="stokalan_id_2" data-parametre="2">
+        @*<option>Seçin...</option>*@
+    </select>
+</div>
+
+
+<input type="checkbox" name="eksi_stok_uyari" id="ayh" /> Eksi stok uyarı<br />
+
+<!--Yukarıdaki örneğe göre label ve select boxlar çogaltılacak-->
+<script>
+   
+        $(function () {
+            parametre.parametreListeleri({
+                parametregrubu: '0',
+                labels: ['parametre_1', 'parametre_2'],
+                selectBoxes: ['stokalan_id_1', 'stokalan_id_2']
+            });
+            $('#ayh').prop('checked', true);
+
+        });
+</script>

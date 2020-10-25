@@ -1,0 +1,59 @@
+﻿<form id="bankaHesapForm" class="ui-front">
+   
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="Banka">Banka</label>
+            <select class="form-control" name="banka_id" id="banka_id"></select>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="Şube">Şube</label>
+            <select class="form-control" name="banka_sube_id" id="banka_sube_id"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="pb">Para Birimi </label>
+            <select class="form-control" name="pb1" id="pb1"></select>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="sku_no">İban No</label>
+            <input type="number" class="form-control" name="ibanno" id="ibanno" maxlength="20" placeholder="Iban No Giriniz">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="pb">Dbs </label>
+            <input type="number" class="form-control" name="kredi_limiti_dbs" id="kredi_limiti_dbs" placeholder="DBS No Giriniz">
+            
+        </div>
+        @*<div class="form-group col-sm-6">
+            <label for="sku_no">İban No</label>
+            <input type="text" class="form-control" name="ibanno" id="ibanno" maxlength="20" placeholder="Iban No Giriniz">
+        </div>*@
+    </div>
+    
+    <input id="hfId" name="hfId" value="" type="hidden" />
+    <script>
+        $(function () {
+            parametre.init(
+                       {
+                           select: {
+                               parabirimControlId: 'pb1',
+                               bankaControlId: 'banka_id',
+                           }
+                       });
+
+            //stokkart_tipi_id selected change olayı
+            $('#banka_id').on('change', function () {
+                var val = $(this).val();
+                //console.log(val)
+                if (val != '') {
+                    parametre.subeListesi('banka_sube_id', val);
+
+                }
+            });
+          
+        })
+
+    </script>
+</form>

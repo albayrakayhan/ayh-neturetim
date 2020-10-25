@@ -1,0 +1,125 @@
+﻿<div class="active tab-pane" id="genelCon">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="form-group col-sm-12 border-bottom nMargin-bottom">
+                <h4 class="inline">Resim / Dosya</h4>
+                <button type="button" class="btn btn-default btn-sm fright delete fileDeleteButton" id="Test"><i class="fa fa-remove"></i></button>
+                <button type="button" class="btn btn-default btn-sm fright m-right-10 fileUploadButton" title="Ekle"><i class="fa fa-plus"></i></button>
+            </div>
+            <div class="form-group col-sm-12 no-padding">
+                <table id="imageDownload" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Dosya İsmi</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding text-center imageItem">
+            <a href="#" class="selectedImageHref" target="_blank">
+                <img class="img-responsive selectedImageSrc" src="~/assets/dist/img/photo2.png" />
+                <span>Resim Aç</span>
+            </a>
+        </div>
+        <!--Right item-->
+        <div class="col-sm-5">
+            <div class="col-sm-6">
+                <!--item Varsayılan Tedarikçi-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label for="satici_carikart_id">Varsayılan Tedarikçi</label>
+                    <input type="text" class="form-control" id="satici_carikart_id"  name="satici_carikart_id" placeholder="Varsayılan Satıcı" ><i class="fa fa-fw fa-search" style="position:absolute;right:5px;top:28px;"></i>
+                </div>
+                <!--item Varsayılan Tedarikçi-->
+                <!--item cins-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Cins</label>
+                    <select class="form-control" name="cinsler" id="stokalan_id_4">
+                        @*<option>Erkek</option>
+                            <option>Bayan</option>
+                            <option>Çocuk</option>
+                            <option>Bebe</option>
+                            <option>Unisex</option>*@
+                    </select>
+                </div>
+                <!--item cins-->
+                <!--item marka-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Marka</label>
+                    <select class="form-control" name="markalar" id="stokalan_id_1"></select>
+                </div>
+                <!--item marka-->
+                <!--item Pelür-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Pelür</label>
+                    <select class="form-control" name="pelur" id="stokalan_id_7">
+                        @*<option>Pelür</option>
+                            <option>Özel Pelür</option>*@
+                    </select>
+                </div>
+                <!--item Pelür-->
+                <!--item Sponsor Bilgisi-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Sponsor Bilgisi</label>
+                    <select class="form-control" name="sponsorBilgisi" id="stokalan_id_3">
+                        @*<option>Sponsorlu</option>
+                            <option>Sponsozsuz</option>*@
+                    </select>
+                </div>
+                <!--item Sponsor Bilgisi-->
+                <!--item Üretim Yeri-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Üretim Yeri</label>
+                    <select class="form-control" name="uretimYeri" id="stokalan_id_2"></select>
+                </div>
+                <!--item Üretim Yeri-->
+            </div>
+            <div class="col-sm-6">
+                <!--item Gerçek Üretim Yeri-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Gerçek Üretim Yeri</label>
+                    <select class="form-control" name="gercekUretimYeri" id="uretimyeri_id"></select>
+                </div>
+                <!--item Gerçek Üretim Yeri-->
+                <!--item key-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Key</label>
+
+                    <select class="form-control" name="keyler" id="stokalan_id_9">
+                        @*<option>Key</option>*@
+                    </select>
+                </div>
+                <!--item key-->
+                <!--item Model Türü-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Model Türü</label>
+                    <select class="form-control" name="modelTuru" id="stokalan_id_6">
+                        @*<option>Üretim</option>
+                            <option>Numune</option>
+                            <option>Planlama</option>*@
+                    </select>
+                </div>
+                <!--item Model Türü-->
+                <!--item Promo-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Promo</label>
+                    <select class="form-control" name="promo" id="stokalan_id_8">
+                        @*<option>Promo</option>*@
+                    </select>
+                </div>
+                <!--item Promo-->
+                <!--item Tür-->
+                <div class="col-sm-12 form-group no-padding">
+                    <label>Tür</label>
+                    <select class="form-control" name="tur" id="stokalan_id_5"></select>
+                </div>
+                <!--item Tür-->
+            </div>
+        </div>
+        <!--Right item-->
+    </div>
+</div>
+<script>
+    
+</script>

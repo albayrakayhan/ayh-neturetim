@@ -1,0 +1,48 @@
+﻿<form id="talimatForm" >
+    <div class="row">
+        <div class="form-group col-sm-2">
+            <label for="sira_id">Sıra*</label>
+            <input type="text" class="form-control" name="sira_id" id="sira_id" placeholder="Sıra *">
+        </div>
+        <div class="form-group col-sm-5">
+            <label for="talimatturu_id">Talimatlar*</label>
+            <select class="form-control" name="talimatturu_id1" id="talimatturu_id1"></select>
+        </div>
+        <div class="form-group col-sm-5">
+            <label for="fasoncu_carikart_id">Fasoncu </label>
+            <select class="form-control ui-front" name="fasoncu_carikart_id1" id="fasoncu_carikart_id1"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-2">
+            <label for="islem_sayisi">İşlem Sayısı </label>
+            <input type="text" class="form-control" name="islem_sayisi" id="islem_sayisi" placeholder="İşlem Sayısı *">
+        </div>
+        <div class="form-group col-sm-5">
+            <label for="irstalimat">İrsaliye Açıklama*</label>
+            <textarea class="form-control" name="irstalimat" id="irstalimat" placeholder="İrsaliye Açıklama *"></textarea>
+        </div>
+        <div class="form-group col-sm-5">
+            <label for="aciklama">Açıklama*</label>
+            <textarea type="text" class="form-control" name="aciklama" id="aciklama" placeholder="Açıklama *"></textarea>
+        </div>        
+    </div>
+    <input id="hfId" name="hfId" value="" type="hidden" />
+    <input id="siparis_id" name="siparis_id" value="" type="hidden" />
+    <input id="eski_sira_id" name="eski_sira_id" value="" type="hidden" />
+    <script>
+        $(function () {
+            parametre.talimatListesi('talimatturu_id1');
+            parametre.fasoncuListesi('fasoncu_carikart_id1')
+                //Detay Sayfasında aynı isimde iki tane field olduğu için yukarıdaki şekilde yazdım.:)AA
+                //parametre.init(
+                //           {
+                //               select: {
+                //                   talimatControlId: 'talimatturu_id',
+                //                   fasoncuControlId: 'fasoncu_carikart_id',
+                //               }
+                //           });
+                customValidation.modelKartTalimatlar();
+            })
+        </script>
+</form>

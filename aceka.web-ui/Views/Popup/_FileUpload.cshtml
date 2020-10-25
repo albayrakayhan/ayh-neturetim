@@ -1,0 +1,50 @@
+﻿@model long
+<form id="eklerFrom">
+    <div class="row poptitle">
+        <div class="col-sm-4 form-group nMargin-bottom">Model Kodu:</div>
+        <div class="col-sm-4 form-group nMargin-bottom"><input type="radio" checked name="modelKodu" id="modelKodu1" /><label for="modelKodu1" id="labelModelKodu1"></label></div>
+        <div class="col-sm-4 form-group nMargin-bottom"><input type="radio" name="modelKodu" id="modelKodu2" /><label for="modelKodu2" id="labelModelKodu2"></label></div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label for="stokId">Stok Adı</label>
+            <input type="text" class="form-control" name="stok_adi" id="stok_adi"  disabled>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label for="ekturu_id">Dosya Türü*</label>
+            <select class="form-control" name="ekturu_id" id="ekturu_id" required>
+
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label for="stokId">Dosya Seç*</label>
+            <div class="relative fileDiv">
+                <span class="fileButton">Dosya Seç...</span>
+                <input type="file" class="form-control" name="dosyaSec" id="dosyaSec" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label for="stokId">Açıklama</label>
+            <input type="text" class="form-control" name="acıklama" id="acıklama" placeholder="Açıklama">
+        </div>
+    </div>
+
+    <input id="hfId" name="hfId" value="" type="hidden" />
+    <script>
+        $(function () {
+            parametre.dosyaturleri('ekturu_id');
+            customValidation.eklerFrom();
+        });
+        $('input:file').change(function () {
+            var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+            $('.fileButton').text(filename);
+            
+        })
+    </script>
+</form>

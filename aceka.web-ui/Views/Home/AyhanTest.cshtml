@@ -1,0 +1,129 @@
+﻿
+@{
+    Layout = null;
+}
+
+@*<!-- jQuery 2.2.3 -->
+    <script src="@Url.Content("~/assets/plugins/jQuery/jquery-2.2.3.min.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+
+
+
+    <div style="padding:5px">
+        <label id="parametre_1" data-parametre="1"></label><br />
+        <select id="stokalan_id_1" data-parametre="1">
+            <option>Seçin...</option>
+        </select>
+    </div>
+
+    <div style="padding:5px">
+        <label id="parametre_2" data-parametre="2"></label><br />
+        <select id="stokalan_id_2" data-parametre="2">
+            <option>Seçin...</option>
+        </select>
+    </div>
+
+
+    <input type="checkbox" name="eksi_stok_uyari" id="ayh" /> Eksi stok uyarı<br />
+
+    <!--Yukarıdaki örneğe göre label ve select boxlar çogaltılacak-->
+    <script>
+
+            $(function () {
+                parametre.parametreListeleri({
+                    parametregrubu: '0',
+                    labels: ['parametre_1', 'parametre_2'],
+                    selectBoxes: ['stokalan_id_1', 'stokalan_id_2']
+                });
+                $('#ayh').prop('checked', true);
+
+            });
+    </script>*@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Kendo UI Snippet</title>
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.rtl.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.silver.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.913/styles/kendo.mobile.all.min.css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.3.913/js/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendo/cultures/kendo.culture.tr-TR.min.js"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparis.js")"></script>
+
+
+</head>
+<body>
+
+
+    <div id="example1">
+        <div id="grid"></div>
+
+        <script>
+
+            var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
+                dataSource = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: crudServiceBaseUrl + "/Products",
+                            dataType: "jsonp"
+                        },
+                        update: {
+                            url: crudServiceBaseUrl + "/Products/Update",
+                            dataType: "jsonp"
+                        },
+                        destroy: {
+                            url: crudServiceBaseUrl + "/Products/Destroy",
+                            dataType: "jsonp"
+                        },
+                        create: {
+                            url: crudServiceBaseUrl + "/Products/Create",
+                            dataType: "jsonp"
+                        },
+                        parameterMap: function (options, operation) {
+                            if (operation !== "read" && options.models) {
+                                return { models: kendo.stringify(options.models) };
+                            }
+                        }
+                    },
+                    batch: true,
+                    pageSize: 20,
+                    schema: {
+                        model: {
+                            id: "ProductID",
+                            fields: {
+                                ProductID: { editable: false, nullable: true },
+                                ProductName: { validation: { required: true } },
+                                UnitPrice: { type: "number", validation: { required: true, min: 1 } },
+                                Discontinued: { type: "boolean" },
+                                UnitsInStock: { type: "number", validation: { min: 0, required: true } }
+                            }
+                        }
+                    }
+                });
+
+            $("#grid").kendoGrid({
+                dataSource: dataSource,
+                pageable: true,
+                height: 300,
+                toolbar: ["create"],
+                columns: [
+                  { field: "ProductName", title: "Product Name" },
+                  { field: "UnitPrice", title: "Unit Price", format: "{0:c}", width: "120px" },
+                  { field: "UnitsInStock", title: "Units In Stock", width: "120px" },
+                  { field: "Discontinued", width: "120px" },
+                  { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }],
+                editable: "popup"
+            });
+        </script>
+    </div>
+
+</body>
+</html>

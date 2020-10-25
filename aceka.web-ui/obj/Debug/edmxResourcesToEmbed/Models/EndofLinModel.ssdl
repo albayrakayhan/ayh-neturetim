@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EndofLinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MarsanMail">
+    <Key>
+      <PropertyRef Name="sipid" />
+    </Key>
+    <Property Name="sipid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiparisNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="TerminTarihi" Type="datetime" />
+    <Property Name="Firma" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiparisTarihi" Type="datetime" />
+    <Property Name="FirmaSiparisNo" Type="nvarchar" MaxLength="200" />
+    <Property Name="Renk" Type="nvarchar" MaxLength="200" />
+    <Property Name="StokKodu" Type="nvarchar" MaxLength="200" />
+    <Property Name="SiparisMiktari" Type="float" />
+    <Property Name="Durum" Type="nvarchar" MaxLength="50" />
+    <Property Name="Talimat" Type="nvarchar" MaxLength="150" />
+    <Property Name="ReceteNo" Type="int" />
+    <Property Name="KartNo" Type="int" />
+    <Property Name="IsEmriMiktari" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="DepoMiktari" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="TopSayisi" Type="int" />
+    <Property Name="UretilmemisMiktar" Type="nvarchar" MaxLength="150" />
+    <Property Name="SonHaraketTarihi" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MarsanMailHesaplari">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdSoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="EPosta" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Aktif" Type="bit" Nullable="false" />
+    <Property Name="OrmeAktif" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EndofLin.dbo.MarsanMailOrme' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MarsanMailOrme">
+    <Key>
+      <PropertyRef Name="sipid" />
+    </Key>
+    <Property Name="sipid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiparisNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="TerminTarihi" Type="datetime" />
+    <Property Name="OrmeTerminTarihi" Type="datetime" />
+    <Property Name="Firma" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirmaSiparisNo" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsEmriMiktari" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="IsEmriBakiye" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="UretimMiktari" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="UretimBakiye" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Cinsi" Type="nvarchar" MaxLength="250" />
+    <Property Name="SiparisMiktari" Type="float" />
+    <Property Name="Birim" Type="nvarchar" MaxLength="10" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="300" />
+    <Property Name="Pus" Type="nchar" MaxLength="10" />
+    <Property Name="Fayn" Type="nchar" MaxLength="10" />
+    <Property Name="TüpMay" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <EntityContainer Name="EndofLinModelStoreContainer">
+    <EntitySet Name="MarsanMail" EntityType="Self.MarsanMail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarsanMailHesaplari" EntityType="Self.MarsanMailHesaplari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarsanMailOrme" EntityType="Self.MarsanMailOrme" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MarsanMailOrme].[sipid] AS [sipid], 
+    [MarsanMailOrme].[SiparisNo] AS [SiparisNo], 
+    [MarsanMailOrme].[TerminTarihi] AS [TerminTarihi], 
+    [MarsanMailOrme].[OrmeTerminTarihi] AS [OrmeTerminTarihi], 
+    [MarsanMailOrme].[Firma] AS [Firma], 
+    [MarsanMailOrme].[FirmaSiparisNo] AS [FirmaSiparisNo], 
+    [MarsanMailOrme].[IsEmriMiktari] AS [IsEmriMiktari], 
+    [MarsanMailOrme].[IsEmriBakiye] AS [IsEmriBakiye], 
+    [MarsanMailOrme].[UretimMiktari] AS [UretimMiktari], 
+    [MarsanMailOrme].[UretimBakiye] AS [UretimBakiye], 
+    [MarsanMailOrme].[Cinsi] AS [Cinsi], 
+    [MarsanMailOrme].[SiparisMiktari] AS [SiparisMiktari], 
+    [MarsanMailOrme].[Birim] AS [Birim], 
+    [MarsanMailOrme].[Aciklama] AS [Aciklama], 
+    [MarsanMailOrme].[Pus] AS [Pus], 
+    [MarsanMailOrme].[Fayn] AS [Fayn], 
+    [MarsanMailOrme].[TüpMay] AS [TüpMay]
+    FROM [dbo].[MarsanMailOrme] AS [MarsanMailOrme]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

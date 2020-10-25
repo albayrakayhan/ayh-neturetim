@@ -1,0 +1,113 @@
+﻿<div class="tab-pane" id="finans">
+
+    <div class="row">
+        <div class="col-sm-12">
+                <div class="col-sm-6" style="border-style:double; border-color:#ccc; height:467px;  ">
+                    <span style="font-size:medium; font-stretch:wider;">Vergi Dairesi</span>
+                    <br />
+                    <div class="form-group col-sm-12">
+                        <label>Vergi Dairesi*</label>
+                        <input id="vergi_dairesi" name="vergi_dairesi" class="form-control"><i class="fa fa-fw fa-search" style="position:absolute;right:20px;top :28px;"></i>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label>Muhasebe Kodu</label>
+                        <select class="form-control" name="muh_kod" id="muh_kod">
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="masraf_merkezi_id">Masraf Merkezi*</label>
+                        <select class="form-control" name="masraf_merkezi_id" id="masraf_merkezi_id"></select>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="vergino">Vergi No*</label>
+                        <input type="text" class="form-control" name="vergi_no" id="vergi_no" value="">
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="tckimlikno">T.C. Kimlik No</label>
+                        <input type="text" class="form-control"  name="tckimlikno" id="tckimlikno" value="">
+                    </div>
+
+                    <div class="form-group col-sm-12">
+                        <label for="ulke_id">Yurtdışı Kodu</label>
+                        <input type="text" class="form-control"  name="diger_kod" id="diger_kod" value=""> 
+                    </div>
+                </div>
+                <div class="col-sm-6" style="border-style:double; border-color:#ccc; ">
+                    <u>  <span style="font-size:medium;">İrsaliye Adresi</span></u>
+                    <br />
+                    <div class="form-group col-sm-12">
+                        <label>Ödeme Planı*</label>
+                        <select class="form-control" name="odeme_plani_id" id="odeme_plani_id"></select>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label>Cari Ödeme Şekli*</label>
+                        <select class="form-control" name="odeme_sekli_id" id="odeme_sekli_id"></select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="pb">Cari Para Birimi*</label>
+                        <select class="form-control" name="pb" id="pb"></select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="fiyattipi">Cari Fiyat Tipi*</label>
+                        <select class="form-control" name="fiyattipi" id="fiyattipi"></select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="odeme_listesinde_cikmasin">Ödeme Listesi</label>
+                        <select class="form-control" name="odeme_listesinde_cikmasin" id="odeme_listesinde_cikmasin">
+                            <option value="1">Ödeme Listesinde Çıksın</option>
+                            <option value="0">Ödeme Listesinde Çıkmasın</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="alacak_listesinde_cikmasin">Alacak Listesi</label>
+                        <select class="form-control" name="alacak_listesinde_cikmasin" id="alacak_listesinde_cikmasin">
+                            <option value="1">Alacak Listesinde Çıksın</option>
+                            <option value="0">Alacak Listesinde Çıkmasın</option>
+                        </select>
+                        
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="iskonto_alis">Satınalma İskontosu</label>
+                        <input type="text" class="form-control"  name="iskonto_alis" id="iskonto_alis" value="">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="tedarik_gunu">Teslimat Süresi(Gün)</label>
+                        <input type="text" class="form-control" placeholder="Teslimat Süresi(Gün)" name="tedarik_gunu" id="tedarik_gunu" value="">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="iskonto_satis">Toptan Satış İskontosu</label>
+                        <input type="text" class="form-control" placeholder="Toptan Satış İskontosu " name="iskonto_satis" id="iskonto_satis" value="">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="swift_kodu">SWIFT Kodu</label>
+                        <input type="text" class="form-control" placeholder="SWIFT Kodu" name="swift_kodu" id="swift_kodu" value="">
+                    </div>
+                    <section>
+                            <div class="form-group col-sm-12 ">
+                                <button type="submit" onclick="stokkartilkMadde.put.send();" class="btn btn-silver col-sm-12 fright">Ödeme Planını Uygula</button>
+                            </div>
+                    </section>
+                </div>
+            </div>
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs xsFont">
+                    <li class="active"><a href="#bankahesap" data-toggle="tab">BANKA HESAP BİLGİLERİ</a></li>
+                    <li><a href="#finansiletisim" data-toggle="tab">İLETİŞİM BİLGİLERİ</a></li>
+                    <li><a href="#finansNotlarForm" data-toggle="tab">NOTLAR</a></li>
+                </ul>
+                <div class="tab-content">
+                    <!--varyantlar-->
+                    @Html.Partial("_bankahesap")
+                    <!--varyantlar-->
+                    <!--varyantlar-->
+                    @Html.Partial("_finansiletisim")
+                    <!--varyantlar-->
+                    <!--varyantlar-->
+                    @Html.Partial("_notlar")
+                    <!--varyantlar-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

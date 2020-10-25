@@ -1,0 +1,200 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Yeni Personel";
+}
+
+
+
+<form id="newForm">
+
+
+
+
+    <section class="content heightAuto nPadding-bottom">
+
+
+
+        <div class="box box-warning">
+            <div class="box-body">
+                <div class="row-border">
+                    <div class="col-lg-2" style="background-color:aqua">
+                        div 1
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group col-sm-12">
+                            <label>İlgili Şube</label>
+                            <select class="form-control" name="sube_carikart_id" id="sube_carikart_id">
+                                <option value="0"></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Personel Ad Soyad</label>
+                            <input type="text" class="form-control" id="cari_unvan" name="cari_unvan" />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Kullanıcı Adı</label>
+                            <input type="text" class="form-control" id="giz_kullanici_adi" name="giz_kullanici_adi" />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Personel Kayıt ID</label>
+                            <input type="text" class="form-control" id="carikart_id" name="carikart_id" disabled />
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group col-sm-12">
+                            <label>Muhasebe Kodu</label>
+                            <select class="form-control" name="muh_kod" id="muh_kod">
+                                <option value="0"></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Statü</label>
+                            <select class="form-control" name="statu" id="statu">
+                                <option>Aktif</option>
+                                <option>Pasif</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Kullanıcı Parola</label>
+                            <input type="text" class="form-control" id="giz_kullanici_sifre" name="giz_kullanici_sifre" />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Özel Kod</label>
+                            <input type="text" class="form-control" id="ozel_kod" name="ozel_kod" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs xsFont">
+                        <li class="active"><a href="#iletisimCon" data-toggle="tab">Genel</a></li>
+                        <li><a href="#calismayerleriCon" data-toggle="tab">Çalışma Yerleri</a></li>
+                        <li><a href="#raporparametreleriCon" data-toggle="tab">Rapor Parametreleri</a></li>
+                    </ul>
+                    <div class="tab-content">
+
+                        @Html.Partial("_iletisimCon")
+
+                        @Html.Partial("_calismayerleriCon")
+
+                        @Html.Partial("_raporparametreleriCon")
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="calismayeriPopup" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-aqua-active">
+                        <button type="button" class="close white" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><center>Çalışma Yeri</center> </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Çalışma Yeri</label>
+                                <select id="calismayeri" name="calismayeri" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Görev</label>
+                                <select id="gorev" name="gorev" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Departman</label>
+                                <select id="departman" name="departman" class="form-control"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Kaydet</button>
+                        <button type="button" class="btn btn-danger" id="hide">Vazgeç</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content-header nPadding-bottom">
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <button type="submit" class="btn btn-primary col-sm-2 fright" onclick="personelkart.post.send();">Kaydet</button>
+            </div>
+        </div>
+    </section>
+</form>
+
+
+<script type="text/javascript" src="/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="/assets/dist/js/aceka.personelkart.js"></script>
+<script type="text/javascript" src="/assets/dist/js/aceka.parametreler.js"></script>
+<script type="text/javascript" src="/assets/dist/js/aceka.carikart.autocomplate.js"></script>
+<script type="text/javascript" src="/assets/dist/js/aceka.genel.js"></script>
+<script type="text/javascript" src="/assets/dist/js/aceka.carikart.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+        $(function () {
+
+            personelkart.post.init(@Model);
+            personelkart.search.init();
+
+
+            parametre.init(
+                {
+                    select: {
+                        ulkeControlId               : 'selectUlkeler',
+                        sehirControlId              : 'selectSehirler',
+                        ilceControlId               : 'selectIlceler',
+                        semtControlId               : 'selectSemtler',
+                        fiyattipiControlId          : 'selectfiyattipi',
+                        vergiDaireleriControlId     : 'selectVergiDaireleri',
+                        zorlukGrubuControlId        : 'selectZorlukGrubu',
+                        sirketListesiControlId      : 'selectSirketListesi',
+                        carikartTurControlId        : 'selectcarikartTur',
+                        fiyattipControlId           : 'selectfiyattipleri',
+                        parabirimControlId          : 'selectparabirimleri',
+                        cariodemeControlId          : 'selectcariodeme',
+                        carikartTipControlId        : 'selectcarikartTip',
+                        masrafMerkeziControlId      : 'selectmasrafMerkezi',
+                    }
+                });
+
+            personelkart.Parametreler.subeler();
+
+            personelkart.Parametreler.muhasebekodlari();
+
+            personelkart.Parametreler.cariparametreler(1);
+            personelkart.Parametreler.cariparametreler(2);
+            personelkart.Parametreler.cariparametreler(3);
+            personelkart.Parametreler.cariparametreler(4);
+            personelkart.Parametreler.cariparametreler(5);
+            personelkart.Parametreler.cariparametreler(6);
+            personelkart.Parametreler.cariparametreler(7);
+
+            personelkart.Parametreler.gorevler();
+            personelkart.Parametreler.departmanlar();
+            personelkart.Parametreler.calismayeri();
+        });
+</script>
+
+
+
+
+
+
+

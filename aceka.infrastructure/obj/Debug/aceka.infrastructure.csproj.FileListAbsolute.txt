@@ -1,0 +1,15 @@
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\aceka.infrastructure.dll
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\aceka.infrastructure.pdb
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\gizModulesNET4.dll
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\Newtonsoft.Json.dll
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\System.Web.Http.dll
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\System.Web.Mvc.dll
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\System.Net.Http.Formatting.dll
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\Newtonsoft.Json.xml
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\System.Web.Http.xml
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\System.Web.Mvc.xml
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\bin\Debug\System.Net.Http.Formatting.xml
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\obj\Debug\aceka.infrastructure.csprojResolveAssemblyReference.cache
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\obj\Debug\aceka.infrastructure.dll
+C:\Ayhan\Project\ack-net-uretim\aceka.infrastructure\obj\Debug\aceka.infrastructure.pdb

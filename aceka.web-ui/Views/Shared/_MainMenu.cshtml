@@ -1,0 +1,77 @@
+﻿<section class="sidebar">
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+        <li class="header">Menü</li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-share"></i> <span>Genel Ayarlar</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu" style="display: block; display:none;">
+                <li><a href="@Url.Action("calismaTakvimi","GenelAyarlar")"><i class="fa fa-edit"></i> Çalışma Takvimi</a></li>
+                <li><a href="@Url.Action("gtipTanimlamalari","GenelAyarlar")"><i class="fa fa-edit"></i> Gtip Tanımları </a></li>
+                <li><a href="@Url.Action("kurBilgileri","GenelAyarlar")"><i class="fa fa-edit"></i> Kur Bilgileri</a></li>
+                <li><a href="@Url.Action("sistemAyarlari","GenelAyarlar")"><i class="fa fa-edit"></i> Sistem Ayarları</a></li>
+                <li><a href="@Url.Action("toplufiyatTanimlama","GenelAyarlar")"><i class="fa fa-edit"></i> Toplu Fiyat Tanımlama</a></li>
+                <li><a href="@Url.Action("talimatturuTanimlama","GenelAyarlar")"><i class="fa fa-edit"></i> Talimat Türü Tanımlama</a></li>
+                <li><a href="@Url.Action("OtomatikAksesuarEkle","Carikart")"><i class="fa fa-edit"></i>Otomatik Aksesuar Ekle</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="@Url.Action("Search","Carikart")">
+                <i class="fa fa-edit"></i> <span>Cari Kart</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+        </li>
+        <li class="treeview">
+            <a href="@Url.Action("Search","depo")">
+                <i class="fa fa-edit"></i> <span>Depo Kart</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+        </li>
+        <li class="treeview">
+            <a href="@Url.Action("Search","Stokkart")">
+                <i class="fa fa-edit"></i> <span>Stok Kart</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+        </li>
+        <li class="treeview">
+            <a href="@Url.Action("Search","Model")">
+                <i class="fa fa-edit"></i> <span>Model Kart</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+        </li>
+        <li class="treeview">
+            <a href="@Url.Action("Search","Personel")">
+                <i class="fa fa-edit"></i> <span>Personel Kart</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+        </li>
+        <li class="treeview">
+            <a href="@Url.Action("Search","Siparis")">
+                <i class="fa fa-edit"></i> <span>Sipariş Kartı</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+        </li>
+        @*<li class="treeview">
+                <a href="@Url.Action("TopluFiyatTanimlama","FiyatTanim")">
+                    <i class="fa fa-edit"></i> <span>Toplu Fiyat Tanımı</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+            </li>*@
+    </ul>
+</section>

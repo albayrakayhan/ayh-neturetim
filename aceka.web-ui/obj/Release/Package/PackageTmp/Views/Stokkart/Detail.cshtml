@@ -1,0 +1,302 @@
+﻿@model int
+@{
+    ViewBag.Title = "Stok Kart Detay";
+
+}
+<form id="stokKart">
+    <input id="hfstokkart_tipi_id" name="hfstokkart_tipi_id" value="" type="hidden" />
+    <!--Search elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="box box-warning">
+            <div class="box-body">
+                <div class="row">
+                    <!--items-->
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-12">
+                            <label for="stokId">Stok Kart Id</label>
+                            <input type="text" class="form-control" name="stokkart_id" id="stokkart_id" value="@Model" placeholder="" disabled />
+                            <input id="modelkart_id" name="modelkart_id" value="@Model" type="hidden" />
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="stokKodu">Stok Kodu*</label>
+                            <input type="text" class="form-control" name="stok_kodu" id="stok_kodu" value="">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="stokKodu">Orjinal Stok Kodu</label>
+                            <input type="text" class="form-control" name="orjinal_stok_kodu" id="orjinal_stok_kodu" value="">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Kullanım Talimatı</label>
+                            <select class="form-control" name="talimatturu_id" id="talimatturu_id"></select>
+                        </div>
+                    </div>
+                    <!--items-->
+                    <!--items-->
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-12">
+                            <label>Stok Kart Tipleri*</label>
+                            <select class="form-control" name="stokkart_tipi_id" id="stokkart_tipi_id"></select>
+                        </div>
+                        @*<div class="form-group col-sm-12">
+                                <label for="stokKodu">Tanım(Kısa Adı)</label>
+                                <input type="text" class="form-control" name="stokKodu" id="stokKodu" value="a12S342">
+                            </div>*@
+                        <div class="form-group col-sm-12">
+                            <label for="stok_adi_uzun">Tanım (Uzun Adı)*</label>
+                            <input type="text" class="form-control" name="stok_adi_uzun" id="stok_adi_uzun" value="">
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label for="stokKodu">Orjinal Adı</label>
+                            <input type="text" class="form-control" name="orjinal_stok_adi" id="orjinal_stok_adi" value="">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="aciklama">Kullanım Talimatı Türü</label>
+                            <input type="text" class="form-control" name="aciklama" id="aciklama" value="">
+                        </div>
+                    </div>
+                    <!--items-->
+                    <!--items-->
+                    <div class="col-sm-4">
+                        <div class="form-group col-sm-12 no-padding">
+                            <div class="form-group col-sm-4 nMargin-bottom">
+                                <label>Statü</label>
+                                <select class="form-control" name="statu" id="statu">
+                                    <option value="true">Aktif</option>
+                                    <option value="false">Pasif</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-4 nMargin-bottom">
+                                <label>KDV Alış</label>
+                                <select class="form-control" name="kdv_alis_id" id="kdv_alis_id"></select>
+                            </div>
+                            <div class="form-group col-sm-4 nMargin-bottom">
+                                <label>KDV Satış</label>
+                                <select class="form-control" name="kdv_satis_id" id="kdv_satis_id"></select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12 no-padding">
+                            <div class="form-group col-sm-4 nMargin-bottom">
+                                <label>Birim</label>
+                                <select class="form-control" name="birim_id_1" id="birim_id_1"></select>
+                            </div>
+                            <div class="form-group col-sm-4 nMargin-bottom relative">
+                                <label>Birim 2</label>
+                                <select class="form-control width-70" name="birim_id_2" id="birim_id_2"></select>
+                                <input class="brm" type="checkbox" name="birim_id_2_zorunlu" id="birim_id_2_zorunlu">
+                            </div>
+                            <div class="form-group col-sm-4 nMargin-bottom relative">
+                                <label>Birim 3</label>
+                                <select class="form-control width-70" name="birim_id_3" id="birim_id_3"></select>
+                                <input class="brm" type="checkbox" name="birim_id_3_zorunlu" id="birim_id_3_zorunlu">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="kisaAd">Tanım (Kısa Ad)*</label>
+                            <input type="text" class="form-control" name="stok_adi" id="stok_adi" value="">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <button type="button" id="onayButton" name="onayButton" onclick="stokkartilkMadde.put.onayGecmisi(this);" class="btn btn-info w50 onayBtn col-sm-6 fLeft" value="false">Onay</button>
+                            <button type="button" id="onayGecmisi" class="btn btn-warning w50 onaygecmisiBtn col-sm-6 fright" onclick="stokkartilkMadde.get.onayGecmisi(@Model);">Onay Geçmişi</button>
+                        </div>
+                    </div>
+                    <!--items-->
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--Search elements-->
+    <!--Tab elements-->
+    <section class="content heightAuto nPadding-bottom">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs xsFont">
+                        <li class="active"><a href="#genelCon" data-toggle="tab">Genel</a></li>
+                        <li><a href="#varyantlarCon" data-toggle="tab">Varyantlar</a></li>
+                        <li><a href="#uyarilarCon" data-toggle="tab">Uyarılar</a></li>
+                        <li><a href="#digerCon" data-toggle="tab">Diğer</a></li>
+                        <li><a href="#fiyatlarCon" data-toggle="tab">Fiyatlar</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--Genel-->
+                        @Html.Partial("_genelCon")
+                        <!--Genel-->
+                        <!--varyantlar-->
+                        @Html.Partial("_varyantlarCon")
+                        <!--varyantlar-->
+                        <!--Uyarılar-->
+                        @Html.Partial("_uyarilarCon")
+                        <!--Uyarılar-->
+                        <!--Diğer-->
+                        @Html.Partial("_digerCon")
+                        <!--Diğer-->
+                        <!--Fiyatlar-->
+                        @Html.Partial("_fiyatlarCon")
+                        <!--Fiyatlar-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Tab elements-->
+    <!--Save Button-->
+    <section class="content heightAuto">
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <button type="submit" onclick="stokkartilkMadde.put.send();" class="btn btn-primary col-sm-2 fright">Kaydet</button>
+            </div>
+        </div>
+    </section>
+
+</form>
+@section scripts
+{
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.stokkart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.stokkart.autocomplate.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.modelkart.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.carikart.autocomplate.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/plugins/iCheck/icheck.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/dist/js/stokKartDetail.js")"></script>
+
+    <script>
+        $(function () {
+            parametre.init(
+                   {
+                       select: {
+                           stokkartTipControlId: 'stokkart_tipi_id',
+                           kdvControlId: 'kdv_alis_id',  // Kdv Alış select 'tinin içini dolduruyoruz.
+                           olcubirimControlId: 'birim_id_1',
+                           //uretimyeriControlId:'stokalan_id_2',
+                           gercekuretimyeriControlId: 'uretimyeri_id',
+                       }
+                   });
+
+            stokkartilkMadde.search.init();
+
+            parametre.kdvListesi('kdv_satis_id'); // Kdv Satış select 'tinin içini dolduruyoruz.
+
+            parametre.olcubirimListesi('birim_id_2'); // birim2 select 'tinin içini dolduruyoruz.
+            parametre.olcubirimListesi('birim_id_3');
+            parametre.talimatListesi('talimatturu_id');
+            // Varyant sekmesindeki stok kodu için autocomplate i dolduruyoruz.
+            parametre.stokkartskuListesi('stokkart_sku');
+
+            stokkartilkMadde.get.init('@Model');
+
+            stokkartilkMadde.get.genelAlt('@Model'); // @Model ile stokkart_id yi gönderiyoruz.
+
+            stokkartilkMadde.get.genelUst(@Model,
+           {
+               birim_id_1           : 'birim_id_1',
+               birim_id_2           : 'birim_id_2',
+               birim_id_3           : 'birim_id_3',
+               kdv_alis_id          : 'kdv_alis_id',   //Kdv Alış select 'tinin seçili değerini getiriyoruz.
+               kdv_satis_id         : 'kdv_satis_id',
+               birim_id_2_zorunlu   : 'birim_id_2_zorunlu',
+               birim_id_3_zorunlu   : 'birim_id_3_zorunlu',
+               anastokkart_id       : 'anastokkart_id',
+               stok_adi_uzun        : 'stok_adi_uzun',
+               stok_adi             : 'stok_adi',
+               stokkart_tipi_id     : 'stokkart_tipi_id',
+               talimatturu_id       : 'talimatturu_id',
+               statu                : 'statu',
+           });
+            //Genel Alt Sekmesi Rapor parametreleri
+            //var a = $("#hfstokkart_tipi_id").val();
+            //alert(a);
+            parametre.parametreListeleri({
+                parametregrubu: $("#hfstokkart_tipi_id").val(),
+
+                labels: ['parametre_1', 'parametre_2', 'parametre_3', 'parametre_4', 'parametre_5'],
+                selectBoxes: ['stokalan_id_1', 'stokalan_id_2', 'stokalan_id_3', 'stokalan_id_4', 'stokalan_id_5']
+            });
+
+            modelkart.get.genelAltParametreler('@Model',
+          {
+              stokalan_id_1:'stokalan_id_1',
+              stokalan_id_2:'stokalan_id_2',
+              stokalan_id_3:'stokalan_id_3',
+              stokalan_id_4:'stokalan_id_4',
+              stokalan_id_8:'stokalan_id_8',
+              stokalan_id_5:'stokalan_id_5',
+              stokalan_id_6:'stokalan_id_6',
+              stokalan_id_7:'stokalan_id_7',
+              stokalan_id_9:'stokalan_id_9',
+              uretimyeri_id:'uretimyeri_id',
+              satici_carikart_id:'satici_carikart_id',
+          }
+          );
+
+            //stokkart_tipi_id selected change olayı
+            $('#stokkart_tipi_id').on('change', function () {
+                var val = $(this).val();
+                //console.log(val)
+                if (val != '') {
+                    parametre.parametreListeleri({
+                        parametregrubu: val,
+                        labels: ['parametre_1', 'parametre_2', 'parametre_3', 'parametre_4', 'parametre_5'],
+                        selectBoxes: ['stokalan_id_1', 'stokalan_id_2', 'stokalan_id_3', 'stokalan_id_4', 'stokalan_id_5']
+                    });
+
+                }
+            })
+            stokkartilkMadde.get.varyantlar(@Model);
+            stokkartilkMadde.get.uyarilar(@Model);
+            stokkartilkMadde.get.fiyatlar(@Model);
+            stokkartilkMadde.get.sezonlar(@Model);
+            stokkartilkMadde.get.benzerkartlar(@Model);
+            stokkartilkMadde.get.birimDonustur(@Model);
+            $(".select2").select2();
+
+
+        });
+
+      
+
+    </script>
+<script>
+    $('.birim').click(function () {
+        hesapla();
+    });
+    $('.birim').keyup(function() {
+        hesapla();
+    });
+    //$('.secenek').change(function() {
+    // hesapla();
+    //});
+    function hesapla() {
+        if ($('#birim_id_1').val()==5 && $('#birim_id_2').val()==26 && $('#birim_id_3').val()==23) {
+            if ($('input[name="M2_gram"]').val() >0 && $('input[name="eni"]').val() >0) {
+                var a = (1000/($('input[name="M2_gram"]').val()* ($('input[name="eni"]').val()/100))).toFixed(4);
+                var b = $('input[name="eni"]').val();
+                var top = (1/18).toFixed(4);
+            }
+           
+            $('input[name="birim1x"]').val(1);
+            $('input[name="birim2x"]').val(top);
+            $('input[name="birim3x"]').val(a);
+        }
+        else if  ($('#birim_id_1').val()==23 && $('#birim_id_2').val()==26 && $('#birim_id_3').val()==5) {
+            if ($('input[name="M2_gram"]').val() >0 && $('input[name="eni"]').val() >0) {
+                var a = (($('input[name="M2_gram"]').val()* ($('input[name="eni"]').val()/100)/1000)).toFixed(4);
+                var b = $('input[name="eni"]').val();
+                var top = (1/80).toFixed(4);
+            }
+            //=+B18*(B19/100)/1000
+            $('input[name="birim1x"]').val(1);
+            $('input[name="birim2x"]').val(top);
+            $('input[name="birim3x"]').val(a);
+        } 
+
+       
+    }
+</script>
+
+}

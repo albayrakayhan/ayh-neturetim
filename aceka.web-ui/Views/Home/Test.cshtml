@@ -1,0 +1,215 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+
+</head>
+<body style="font-family:Verdana;">
+    <div>
+    </div>
+
+    <!-- jQuery 2.2.3 -->
+    <script src="@Url.Content("~/assets/plugins/jQuery/jquery-2.2.3.min.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.genel.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.parametreler.js")"></script>
+    <script src="@Url.Content("~/assets/dist/js/aceka.siparis.js")"></script>
+
+    <div style="padding:5px">
+        <label>Ülkeler</label><br />
+        <select id="selectUlkeler">
+            <option>Ülke Seçin</option>
+        </select>
+    </div>
+    <div style="padding:5px">
+        <label>Şehirler</label><br />
+        <select id="selectSehirler">
+            <option>Şehir Seçin</option>
+        </select>
+    </div>
+
+    <div style="padding:5px">
+        <label>İlçeler</label><br />
+        <select id="selectIlceler">
+            <option>İlçe Seçin</option>
+        </select>
+    </div>
+    <div style="padding:5px">
+        <label>Semtler</label><br />
+        <select id="selectSemtler">
+            <option>Semt Seçin</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Fiyat Tipleri</label><br />
+        <select id="selectfiyattipi">
+            <option>Fiyat Tipi Seçin</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Vergi Daireleri</label><br />
+        <select id="selectVergiDaireleri">
+            <option>Vergi Dairesi Seçin</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Vergi Daireleri Prototype</label><br />
+        <select id="selectVergiDaireleriPrototype">
+            <option>Vergi Dairesi Seçin</option>
+        </select>
+    </div>
+    <hr />
+    <hr />
+    <div style="padding:5px">
+        <label>Sezonlar</label><br />
+        <select id="selectsezonlar">
+            <option>Sezon Seçin</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Zorluk Grupları</label><br />
+        <select id="selectZorlukGrubu">
+            <option>Zorluk Grupları</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Şirket Listesi</label><br />
+        <select id="selectSirketListesi">
+            <option>Şirket Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Cari Kart Türleri</label><br />
+        <select id="selectcarikartTur">
+            <option>Cari Kart Tür Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Stok Kart Tipleri</label><br />
+        <select id="selectstokkartTip">
+            <option>Stok Kart Tip Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Kdv Listesi</label><br />
+        <select id="selectKdvListesi">
+            <option>Kdv Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Ölçü Birim Listesi</label><br />
+        <select id="selectolcuListesi">
+            <option>Ölçü Birim Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Fiyat Tipleri Listesi</label><br />
+        <select id="selectfiyattipleri">
+            <option>Fiyat Tipleri Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Para Birimleri Listesi</label><br />
+        <select id="selectparabirimleri">
+            <option>Para Birimleri Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Cari Ödeme Listesi</label><br />
+        <select id="selectcariodeme">
+            <option>Cari Ödeme Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Cari Kart Tip Listesi</label><br />
+        <select id="selectcarikartTip">
+            <option>Cari Kart Tip Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Masraf Merkezi Listesi</label><br />
+        <select id="selectmasrafMerkezi">
+            <option>Masraf Merkezi Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Talimat Listesi</label><br />
+        <select id="selectTalimat">
+            <option>Talimat Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Üretim Yeri Listesi</label><br />
+        <select id="selectUretimYeri">
+            <option>Üretim Yeri Listesi</option>
+        </select>
+    </div>
+    <hr />
+    <div style="padding:5px">
+        <label>Gerçek Üretim Yeri Listesi</label><br />
+        <select id="selectGercekUretimYeri">
+            <option>GerçekÜretim Yeri Listesi</option>
+        </select>
+    </div>
+
+
+    <script>
+        $(function () {
+
+            parametre.init(
+                {
+                    select: {
+                        ulkeControlId               : 'selectUlkeler',
+                        sehirControlId              : 'selectSehirler',
+                        ilceControlId               : 'selectIlceler',
+                        semtControlId               : 'selectSemtler',
+                        fiyattipiControlId          : 'selectfiyattipi',
+                        vergiDaireleriControlId     : 'selectVergiDaireleri',
+                        zorlukGrubuControlId        : 'selectZorlukGrubu',
+                        sirketListesiControlId      : 'selectSirketListesi',
+                        carikartTurControlId        : 'selectcarikartTur',
+                        stokkartTipControlId        : 'selectstokkartTip',
+                        kdvControlId                : 'selectKdvListesi',
+                        olcubirimControlId          : 'selectolcuListesi',
+                        fiyattipControlId           : 'selectfiyattipleri',
+                        parabirimControlId          : 'selectparabirimleri',
+                        cariodemeControlId          : 'selectcariodeme',
+                        carikartTipControlId        : 'selectcarikartTip',
+                        masrafMerkeziControlId      : 'selectmasrafMerkezi',
+                        talimatControlId            : 'selectTalimat',
+                        uretimyeriControlId         : 'selectUretimYeri',
+                        gercekuretimyeriControlId   : 'selectGercekUretimYeri',
+                        //sezonControlId: 'selectsezonlar',
+                    }
+                });
+
+            $('#selectVergiDaireleriPrototype').vergidaireleri();
+            $('#selectsezonlar').sezonlar();
+        });
+    </script>
+
+
+</body>
+</html>

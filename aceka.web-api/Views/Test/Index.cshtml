@@ -1,0 +1,117 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+    <script>
+        $(function () {
+
+            //Test 1 POST
+            //$.ajax({
+            //    type: "POST",
+            //    url: "http://92.45.23.86:9597/api/kur",
+            //    //dataType: "test",
+            //    contentType: "application/json",
+            //    data: JSON.stringify({ "tarih": "2016-09-07T10:01", "pb": "€" }),
+            //    success: function (data) {
+            //        $('#dovizListesi')
+            //        .append("<h4>Tarih: 2016-09-07T10:01</h4>")
+            //        $.each(data, function (index, item) {
+            //            $('#dovizListesi')
+            //        .append($("<div>Kur: " + item.pb + ", mb_alis: " + item.mb_alis + ", mb_satis: " + item.mb_satis + ", ser_alis: " + item.ser_alis + ", ser_satis: " + item.ser_satis + "</div>"));
+            //        })                    
+            //    }
+            //});
+
+            //Test 2 GET
+            //$.ajax({
+            //    type: "GET",
+            //    url: "/api/kur",
+            //    //dataType: "test",
+            //    contentType: "application/json",
+            //    data:({ "tarih": "2016-09-07T10:01", "pb": "€" }),
+            //    success: function (data) {
+            //        $('#dovizListesi')
+            //        .append("<h4>Tarih: 2016-09-07T10:01</h4>")
+            //        $.each(data, function (index, item) {
+            //            $('#dovizListesi')
+            //        .append($("<div>Kur: " + item.pb + ", mb_alis: " + item.mb_alis + ", mb_satis: " + item.mb_satis + ", ser_alis: " + item.ser_alis + ", ser_satis: " + item.ser_satis + "</div>"));
+            //        })
+            //    }
+            //});
+
+            //$.ajax({
+            //    type: "POST",
+            //    url: "/api/apitest",
+            //    //dataType: "test",
+            //    //contentType: "application/json",
+            //    data: { "": "Adnan" },
+            //    success: function (data) {
+                   
+                    
+            //    }
+            //});
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://localhost:49629/api/apitest/",
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/x-www-form-urlencoded",
+                    "cache-control": "no-cache",
+                    "postman-token": "b3712bd0-87d8-0ea1-3239-5dcc975912bb"
+                },
+                "data": {
+                    "": "adnan"
+                }
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+
+            //$.getJSON('/api/Doviz')
+            //.done(function (data) {
+
+            //    $.each(data, function (index, item) {
+            //        $('#dovizListesi')
+            //                 .append($("<div>Başlık: " + item.Baslik + ", Alış: " + item.Alis + ", Satış: " + item.Satis + "</div>"));
+            //    });
+            //});
+        })
+
+    </script>
+</head>
+<body>
+    @*<h3>Döviz Listesi</h3>
+    <div id="dovizListesi">
+    </div>*@
+
+
+    <div>
+        <form enctype="multipart/form-data" method="post" action="http://localhost:49629/api/FileUpload" id="ajaxUploadForm" novalidate="novalidate">
+
+            <fieldset>
+                <legend>Upload Form</legend>
+                <ol>
+                    <li>
+                        <label>Upload </label>
+                        <input type="file" style="width:317px" name="Tanim" id="Tanim">
+                    </li>
+                    <li>
+                        <input type="submit" value="Upload" id="ajaxUploadButton" class="btn">
+                    </li>
+                </ol>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

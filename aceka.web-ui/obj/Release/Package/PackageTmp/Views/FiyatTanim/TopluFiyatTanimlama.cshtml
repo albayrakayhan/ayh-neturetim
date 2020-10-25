@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "TopluFiyatTanimlama";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*container-fluid*@
+
+<center>
+    <h2>Toplu Fiyat Tanımlama</h2>
+</center>
+<form id="fiyat">
+    <section class="content heightAuto nPadding-bottom">
+        <div class="box box-warning" >
+            <div class="box-body">
+
+                <div class="row" style="width:100%">
+
+                    <div class="col-lg-4">
+                        <div class="col-sm-8">
+                            <label style="width:100%">Tarih</label>
+                            <input type="date" id="tarih" name="tarih" style="width:100%" />
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label style="width:100%">Para Birimi </label>
+                            <select id="pb" name="pb" class="form-group" style="width:100%">
+                                <option value="0">TL</option>
+                                <option value="0">$</option>
+                                <option value="0">EUR</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="col-sm-12">
+                            <label style="width:100%">Fasoncu</label>
+                            <select id="carikart_id" name="carikart_id" style="width:100%">
+                                <option>Ajara</option>
+                                <option>Ajara2</option>
+                                <option>Ajara3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="col-sm-12">
+                            <label style="width:100%">Talimat</label>
+                            <select id="talimatturu_id" name="talimatturu_id" style="width:100%">
+                                <option>Kesim</option>
+                                <option>Dikim</option>
+                                <option>Yıkama</option>
+                            </select>
+
+                            @*<select id="talimatturu_id" name="talimatturu_id" multiple="multiple" class="dropdown">
+                            <option value="php">PHP</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="java">Java</option>
+                            <option value="sql">SQL</option>
+                            <option value="jquery">Jquery</option>
+                            <option value=".net">.Net</option>
+                        </select>*@
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row" style="width:100%">
+
+                    <div class="col-lg-4">
+                        <div class="form-group col-sm-12">
+                            <label style="width:100%">Fiyat</label>
+                            <input type="text" id="fiyat" name="fiyat" style="width:100%" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group col-sm-12">
+                            <label style="width:95%">Marka</label>
+                            <select id="marka" name="marka" style="width:100%">
+                                <option>Puma</option>
+                                <option>Adidas</option>
+                                <option>Lotto</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group col-sm-12">
+                            <label style="width:100%">Model Adı - Model No Orjinal Stok Kodu</label>
+                            <input type="text" id="urun" name="urun" style="width:100%">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="width:100%">
+                    <div class="col-lg-12">
+                        <div class="col-sm-12">
+                            <label style="width:95%">Açıklama</label>
+                            <textarea class="form-group" id="aciklama" name="aciklama" style="width:100%"></textarea>
+                            @*<input type="text" class="form-group" id="aciklama" name="aciklama" style="width:100%" />*@
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-primary" style="width:48%">Listele</button>
+                            <button type="submit" class="btn btn-primary" style="width:48%">Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</form>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#talimatturu_id').multiselect();
+    });
+
+
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
+      rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"
+      rel="stylesheet" type="text/css" />
+<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+

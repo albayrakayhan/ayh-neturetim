@@ -1,0 +1,22 @@
+﻿<form id="varyantFrom" class="ui-front">
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label for="sku_no">Renk Adı*</label>
+            <input type="text" class="form-control" name="renk_adi" id="renk_adi" placeholder="Renk Adı Giriniz">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12" id="optionCheckDiv">
+            <label for="bedenGrubu">Sku No</label>
+            <input type="text" class="form-control" name="sku_no" id="sku_no"  placeholder="Sku No Giriniz">
+        </div>
+    </div>
+    <input id="hfId" name="hfId" value="" type="hidden" />
+    <input id="renk_id" name="renk_id" value="" type="hidden" />
+    <script>
+        $(function () {
+            stokkartilkMadde.search.init();
+            
+        });
+    </script>
+</form>
